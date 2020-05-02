@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../src/bootstrap.min.css">
+    <link rel="stylesheet" href="../src/style.css">
+
+    <script src="../script/moment.min.js"></script>
+
+    <title>COVID-19 Chile</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary navigation">
+        <a class="navbar-brand" href="./index.html">COVID-19 - Chile</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="navbar-collapse collapse" id="navbarColor01">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item mr-2">
+                <a class="nav-link" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item mr-2">
+                <a class="nav-link" href="./theory.html">Bases teóricas</a>
+            </li>
+            <li class="nav-item mr-2">
+                <a class="nav-link" href="./analysis.html">Análisis (Chile)</a>
+            </li>
+            <li class="nav-item mr-2">
+                <a class="nav-link" href="#">Modelo matemático</a>
+            </li>
+            <li class="nav-item mr-2">
+                <a class="nav-link" href="./data.html">Estadísticas</a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col-lg-8 col-md-12 section">
+            <div class="m-4">
+                <p class="section_title">Modelos matemáticos aplicados a la epidemia</p>
+                <p class="section_autor">Prof. Augusto Rangel</p>
+            </div>
+
+        <h4 class="section_subtitle" id="basic">Conceptos básicos</h4>
+
+        <p class="section_paragraph indent">
+            En la presente investigación se hace uso de los modelos matemáticos como una herramienta para el entendimiento de cómo se transmiten las enfermedades infecciosas. Los objetivos fundamentales de formular dichos modelos matemáticos son describir y predecir información sobre lo que sucederá, de forma aproximada. Se busca proveer un medio que posibilite la comprensión de la dispersión del COVID-19 a través de la población.
+        </p>  
+
+        <hr>
+
+        <p class="section_paragraph">
+            Para acceder a la sección de cálculo de infectados, recuperados y fallecidos, <a href="#here">click aquí</a>.
+        </p>
+
+        <p class="section_paragraph">
+            Los modelos matemáticos se clasifican en: determinísticos y estocásticos. 
+        </p>
+
+        <p class="section_item">
+                - Cuando se habla de un modelo determinístico, es posible controlar los factores implicados en el estudio y, por tanto, sus resultados se pueden predecir de manera exacta.
+                <br><br>
+                - Un modelo estocástico, por su parte, posee factores variables que intervienen en el estudio; no es posible controlar dichos factores, por lo tanto, no se producen resultados exactos.
+        </p>
+
+        <p class="small_title">Número reproductivo básico</p>
+
+        <p class="section_paragraph">
+            Técnicamente pronunciada como “erre subcero”, esta representa el número de nuevas infecciones que se calcula que provienen de un solo caso. Dicho de otro modo, si el R0 de una enfermedad es de 2,5, entonces, se espera que una persona enferma infecte, en promedio, a 2,5 más.
+        </p>
+
+        <p class="section_paragraph">
+            Un R0 menor a 1 sugiere que el número de casos se está reduciendo, lo cual podría permitir que ciertas sociedades reanuden sus actividades. Un R0 mayor a 1 indica que el número de casos está aumentando, lo cual tal vez requiera nuevos cierres de emergencia u otras medidas.
+        </p>
+
+        <h4 class="section_subtitle" id="SIR">Modelo SIR</h4>
+        
+        <p class="section_paragraph indent">
+            Este modelo parte de la premisa en la que los individuos en estudio se encuentran en uno de tres estados posibles. En base a ello, cada individuo se puede clasificar dentro de las categorías: Susceptibles (S), Infectados (I) y Removidos (R). Se asume que la interacción entre los individuos es aleatoria.
+            <br><br>
+            <b>S = SUSCEPTIBLES</b>. Aquellos individuos capaces de ser contagiados.
+            <br><br>
+            <b>I = INFECTADOS</b>. La población que ya está infectada con la enfermedad.
+            <br><br>
+            <b>R = REMOVIDOS</b>. Aquellas personas que tuvieron la enfermedad, y ya no pueden contagiarla por una de dos causas: se recuperaron satisfactoriamente, o fallecieron.
+        </p>
+
+
+        <p class="section_paragraph">
+            El estado chileno se encuentra manejando este sistema para medir el impacto de la pandemia. Información sobre ello se puede encontrar en el artículo “Evolución de las epidemias: La Matemática de aislarse”, de los investigadores Héctor Pastén (Facultad de Matemáticas UC) y Jorge Castillo (Z Data Lab).
+        </p>
+
+        <p class="section_paragraph">
+            Los doctores en matemática agregan que "el llamado modelo SIR es un modelo matemático desarrollado en 1927 y que hasta el día de hoy es la base para otros modelos más sofisticados en el estudio de epidemias. SIR toma en cuenta aspectos de la propagación de una epidemia, que el modelo exponencial no considera: que después de un cierto tiempo, los enfermos se recuperan (o lamentablemente, fallecen) y dejan de ser contagiosos (al menos por un tiempo); que mientras más infectados hay, menos personas sanas quedan susceptibles de ser contagiadas”, sostienen.
+        </p>
+
+        <p class="section_paragraph">
+            Duván Henao y Gregorio Moreno insisten en que el modelo SIR, en su forma más sencilla, “es un sistema de tres ecuaciones diferenciales relacionando la cantidad de personas en estos tres grupos y cómo varían a través del tiempo”.
+        </p>
+
+        <p class="section_paragraph">
+            La representación de los susceptibles, infectados y recuperados, se realiza de la siguiente manera en el modelo SIR:
+        </p>
+
+        <div class="row">
+
+            <div class="col-lg-4 col-md-12">
+                <img class="blackboard" src="../assets/SIR_S.jpg" alt="">
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+                <img class="blackboard" src="../assets/SIR_I.jpg" alt="">
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+                <img class="blackboard" src="../assets/SIR_R.jpg" alt="">
+            </div>
+        </div>
+
+        <p class="section_paragraph">
+            A partir del modelado I, es posible obtener la fórmula básica:
+        </p>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard center" src="../assets/comparacion.jpg" alt="">
+            </div>  
+        </div>
+        
+        <p class="section_paragraph">
+            Es posible tener en cuenta, además, a la ecuación logística:
+        </p>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/ejemplo1.jpg" alt="">
+            </div>  
+        </div>
+
+        <p class="section_paragraph">
+            Se tiene:
+        </p>
+
+        <div class="row">
+
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/explain1.jpg" alt="">
+            </div>  
+
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/explain2.jpg" alt="">
+            </div>
+
+        </div>
+
+        <p class="small_title">Aplicación del modelo SIR para un caso determinado (ejemplo)</p>
+
+        <p class="section_paragraph">
+            Un colegio tiene 1000 alumnos y tiene 1 infectado, a los 4 días vamos a tener 50 infectados. ¿Cuántos infectados vamos a tener a los 6 días?
+        </p>
+
+        <p class="section_paragraph">
+            S = 1000 K
+            <br><br>
+            Io = 1
+            <br><br>
+            B = K
+            <br><br>
+            In(4) = 50 infectados
+            <br><br>
+            In(6) = ?
+            <br><br>
+            In(t) = Infectados +- días
+        </p>
+
+        <p class="section_paragraph">
+            El procedimiento a seguir sería el siguiente:
+        </p>
+
+        <div class="row">
+
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/ejemplo2.jpg" alt="">
+            </div>  
+
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/ejemplo3.jpg" alt="">
+            </div> 
+
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/ejemplo4.jpg" alt="">
+            </div>  
+
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/ejemplo5.jpg" alt="">
+            </div> 
+
+        </div>
+
+        <h4 class="section_subtitle" id="factor">Otros modelos</h4>
+
+        <p class="section_paragraph">
+            Con el fin de estudiar el comportamiento de la pandemia, es posible utilizar otras formas, basadas en el modelo exponencial.
+        </p>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/modelo.png" style="box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.5)" alt="">
+            </div>  
+        </div>
+
+        <hr>
+
+        <div class="row">
+
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/analisis1.jpg" alt="">
+            </div>  
+
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/analisis2.jpg" alt="">
+            </div> 
+
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/analisis3.jpg" alt="">
+            </div>  
+
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/analisis4.jpg" alt="">
+            </div> 
+
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/analisis5.jpg" alt="">
+            </div> 
+
+        </div>
+
+        <p class="small_title" id="here">Análisis del COVID-19 en Chile. Ejemplo y cálculo automático de cifras proporcionadas</p>
+
+        <p class="section_paragraph">
+            Tomando como factor de riesgo el número 1,1, se evalúa el comportamiento de los datos a partir del 1ero de abril con 3404.
+        </p>
+
+        <!-- Sección calculador de cuántos casos habrán al día n -->
+
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/factor2.jpg" style="box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.5)" alt="">
+            </div>  
+            <div class="col-lg-6 col-md-12 p-4 functionality center" id="formulario">
+                <div class="row">
+
+                    <p class="center">Calculador de casos para el día <b>n</b></p>
+                    <div id="message" class="col-sm-12">Para los recuperados y fallecidos, el factor debe ser colocado con tres dígitos decimales.</div>
+
+                    <div class="col-sm-6">
+                        <form>
+                            <div class="container formulario input1">
+                                
+                                <div class="form-group">
+        
+                                    <label for="Factor">Factor</label>
+                                    <input class="form-control" id="Factor" type="number" step="any">  
+        
+                                </div>
+        
+                                <div class="form-group">
+        
+                                    <label for="fecha">Hasta el día:</label>
+                                    <input class="form-control" id="fecha" type="date">
+        
+                                </div>
+        
+                                <button id="calculate1" class="btn btn-primary p-2 mt-4 btn-block calculate1">Calcular</button>
+        
+                            </div>
+                            
+                        </form>     
+                    </div>
+
+                    <div class="col-sm-6 result1">
+                        <p>Categoría</p>
+                        <form>
+                            <input type="radio" id="cont" name="category" value="cont">
+                            <label for="cont">Contagiados</label><br>
+                            <input type="radio" id="rec" name="category" value="rec">
+                            <label for="rec">Recuperados</label><br>
+                            <input type="radio" id="fal" name="category" value="fal">
+                            <label for="fal">Fallecidos</label>
+                        </form>
+                        <div id="result" class="center"></div>
+                        <div id="error" class="center"></div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+
+        <!-- Sección calculador de cuántos días deben pasar para tener n casos -->
+
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/factor3.jpg" style="box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.5)" alt="">
+            </div>  
+            <div class="col-lg-6 col-md-12 p-4 functionality center" id="formulario">
+                <div class="row">
+
+                    <p class="center">¿Cuántos días deben pasar para tener <b>n</b> casos?</p>
+                    <div id="message" class="col-sm-12">Contados a partir del día 1ero de abril.</div>
+
+                    <div class="col-sm-6">
+                        <form>
+                            <div class="container formulario input2">
+                                
+                                <div class="form-group">
+        
+                                    <label for="Factor">Factor</label>
+                                    <input class="form-control" id="Factor" type="number" step="any">  
+        
+                                </div>
+
+                                <div class="form-group">
+        
+                                    <label for="cantInfected">Cantidad de infectados</label>
+                                    <input class="form-control" id="cantInfected" type="number" step="any">  
+        
+                                </div>
+        
+                                <button id="calculate2" class="btn btn-primary p-2 mt-4 btn-block calculate2">Calcular</button>
+        
+                            </div>
+                            
+                        </form>     
+                    </div>
+
+                    <div class="col-sm-6 result2">
+                        <p>Categoría</p>
+                        <form>
+                            <input type="radio" id="cont" name="category2" value="cont">
+                            <label for="cont">Contagiados</label><br>
+                            <input type="radio" id="rec" name="category2" value="rec">
+                            <label for="rec">Recuperados</label><br>
+                            <input type="radio" id="fal" name="category2" value="fal">
+                            <label for="fal">Fallecidos</label>
+                        </form>
+                        <div id="result" class="center"></div>
+                        <div id="error" class="center"></div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+
+        <!-- Sección 3 calculador del factor para que el día n haya una cantidad n de casos -->
+
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <img class="blackboard" src="../assets/factor4.jpg" style="box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.5)" alt="">
+            </div>  
+            <div class="col-lg-6 col-md-12 p-4 functionality center" id="formulario">
+                <div class="row">
+
+                    <p class="center" style="text-align: center">Calculador del factor para que el día <b>n</b> haya determinada cantidad de casos</p>
+
+                    <div class="col-sm-6">
+                        <form>
+                            <div class="container formulario input3">
+                                
+                                <div class="form-group">
+        
+                                    <label for="cantInfected">Cantidad casos</label>
+                                    <input class="form-control" id="cantInfected" type="number" step="any">  
+        
+                                </div>
+
+                                <div class="form-group">
+        
+                                    <label for="fecha">Hasta el día:</label>
+                                    <input class="form-control" id="fecha" type="date">
+        
+                                </div>
+        
+                                <button id="calculate3" class="btn btn-primary p-2 mt-4 btn-block calculate3">Calcular</button>
+        
+                            </div>
+                            
+                        </form>     
+                    </div>
+
+                    <div class="col-sm-6 result3">
+                        <p>Categoría</p>
+                        <form>
+                            <input type="radio" id="cont" name="category3" value="cont">
+                            <label for="cont">Contagiados</label><br>
+                            <input type="radio" id="rec" name="category3" value="rec">
+                            <label for="rec">Recuperados</label><br>
+                            <input type="radio" id="fal" name="category3" value="fal">
+                            <label for="fal">Fallecidos</label>
+                        </form>
+                        <div id="result" class="center"></div>
+                        <div id="error" class="center"></div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+
+        <div class="source">
+
+            <br>
+            <b>Fuentes de información (click en cada enlace para ver el artículo)</b>
+    
+            <hr>
+            <a href="https://www.infobae.com/america/the-new-york-times/2020/04/25/que-es-el-r0-el-indice-impreciso-que-pronto-podria-dar-forma-a-nuestras-vidas/">
+                Infobae: ¿Qué es el R0?
+            </a>
+    
+            <hr>
+        
+        </div>
+        
+        <a href="./data.html" class="btn btn-primary" style="float:right">Ver estadísticas >></a>
+        
+    </div>
+
+    <div class="col-lg-4 col-md-4 section bg-primary static" id="static">
+        <h2 class="section_title text_index">Índice de contenido</h2>
+        <ul class="index text_index">
+            <a href="#basic" class="item">Conceptos básicos</a>
+            <a href="#SIR" class="item">Modelo SIR</a>
+            <a href="#factor" class="item">Otros modelos</a>
+        </ul>
+    </div>
+
+
+    <button class="btn btn-primary showIndex" id="index">Ver índice</button>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="../script/showIndex.js"></script>
+
+    <script src="../script/model.js" type="module"></script>
+
+</body>
+</html>

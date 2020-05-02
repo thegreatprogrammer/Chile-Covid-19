@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/bootstrap.min.css">
+    <link rel="stylesheet" href="src/style.css">
+    <title>COVID-19 Chile</title>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary navigation">
+        
+        <a class="navbar-brand" href="#">COVID-19 - Chile</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="navbar-collapse collapse" id="navbarColor01">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mr-2">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item mr-2">
+                    <a class="nav-link" href="public/theory.html">Bases teóricas</a>
+                </li>
+                <li class="nav-item mr-2">
+                    <a class="nav-link" href="#">Análisis (Chile)</a>
+                </li>
+                <li class="nav-item mr-2">
+                    <a class="nav-link" href="public/model.html">Modelo matemático</a>
+                </li>
+                <li class="nav-item mr-2">
+                    <a class="nav-link" href="public/data.html">Estadísticas</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Análisis del COVID-19</h1>
+        <hr class="my-4">
+        <p class="text-center">
+            Información relevante acerca de la pandemia que paralizó al mundo a inicios del 2020, con énfasis en el caso Chile.
+        </p>
+        <p class="lead text-center">
+            <a class="btn btn-primary button" href="./public/theory.html">Ver más</a>
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card border-light mb-4">
+                    <img class="card-img-top" src="assets/fundamento.jpg" alt="Fundamentos" style="height: 12em">
+                    <div class="card-body">
+                        <h4 class="card-title center">Fundamentos teóricos</h4>
+                        <p class="card-text">
+                            Explicación sobre el COVID-19, la enfermedad originada por el virus SARS-CoV-19. Qué es, cuáles son sus síntomas comunes y cómo prevenirlo. Se cubre el tema de la típica desinformación que suele haber en la población.
+                        </p>
+                        <p class="lead">
+                            <a class="btn btn-primary boton" href="./public/theory.html" role="button">Ver más</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-lg-6">
+                <div class="card border-light mb-4">
+                    <img class="card-img-top" src="assets/model.jpg" alt="Modelo" style="height: 12em">
+                    <div class="card-body">
+                        <h4 class="card-title">Modelo matemático</h4>
+                        <p class="card-text">
+                            Para representar el crecimiento de la pandemia, se hace uso de modelos matemáticos que permiten representar y proyectar la cantidad de posibles casos en determinado tiempo. En este artículo se mencionan a detalle.
+                        </p>
+                        <p class="lead">
+                            <a class="btn btn-primary boton" href="./public/model.html" role="button">Ver más</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card border-light mb-4">
+                    <img class="card-img-top" src="assets/chile.png" alt="Análisis Chile" style="height: 12em">
+                    <div class="card-body">
+                        <h4 class="card-title">Análisis (Chile)</h4>
+                        <p class="card-text">Percepción de la pandemia originada por el COVID-19 desde el punto de vista de Chile. Opiniones, advertencias, e incluso polémicas generadas por las autoridades.</p>
+                        <p class="lead">
+                            <a class="btn btn-primary boton" href="./public/analysis.html" role="button">Ver más</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-lg-6">
+                <div class="card border-light mb-4">
+                    <img class="card-img-top" src="assets/estadistica.png" alt="Estadísticas" style="height: 12em">
+                    <div class="card-body">
+                        <h4 class="card-title">Estadísticas</h4>
+                        <p class="card-text">
+                            Breve reseña sobre la información actualizada al día, acerca de los casos del COVID-19. Sección para verificar los casos de días anteriores y gráficas actualizadas.
+                        </p>
+                        <p class="lead">
+                            <a class="btn btn-primary boton" href="./public/data.html" role="button">Ver más</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <div class="text-center"">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/NMre6IAAAiU" frameborder="0"  allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

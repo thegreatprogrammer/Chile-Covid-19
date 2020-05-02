@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../src/bootstrap.min.css">
+    <link rel="stylesheet" href="../src/style.css">
+    <title>Análisis Chile</title>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary navigation">
+        <a class="navbar-brand" href="./index.html">COVID-19 - Chile</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="navbar-collapse collapse" id="navbarColor01">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mr-2">
+                    <a class="nav-link" href="./index.html">Inicio</a>
+                </li>
+                <li class="nav-item mr-2">
+                    <a class="nav-link" href="./theory.html">Bases teóricas</a>
+                </li>
+                <li class="nav-item mr-2">
+                    <a class="nav-link" href="#">Análisis (Chile)</a>
+                </li>
+                <li class="nav-item mr-2">
+                    <a class="nav-link" href="./model.html">Modelo matemático</a>
+                </li>
+                <li class="nav-item mr-2">
+                    <a class="nav-link" href="./data.html">Estadísticas</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+        
+    <!-- Sección de información -->
+    <div class="row">
+
+        <div class="col-lg-8 col-md-6 section">
+            <div class="m-4">
+                <p class="section_title">Análisis de la pandemia en Chile</p>
+                <p class="section_autor">Prof. Augusto Rangel</p>
+            </div>
+
+            <!-- Parte introductoria -->
+
+            <h4 class="section_subtitle" id="intro">Introducción</h4>
+
+            <p class="section_paragraph indent">
+                La presencia del COVID-19 se manifestó por primera vez en Chile el pasado 3 de marzo. Al igual que en el resto del mundo, comenzó a propagarse de forma lenta, y al transcurrir los días se aceleró. Esto es lo que se conoce como la <a href="https://www.seti.org/coronavirus-y-crecimiento-exponencial">expansión exponencial</a> de la enfermedad, esto es, el incremento no se realiza de forma lineal, en cambio se va multiplicando sobre las cifras previas.
+            </p>
+
+            <p class="small_title">Tasa de incidencia</p>
+
+            <p class="section_paragraph indent">
+                Concepto fundamental para la comprensión del crecimiento de una pandemia. Según El Desconcierto: "Permite conocer el número de casos por cada 100.000 habitantes. No es lo mismo tener 1.420 casos en la Región Metropolitana, que tiene más de 8 millones de habitantes, que tener esos mismos casos en cualquier otra región del país, con un número de habitantes muy inferior a la RM. Medir el impacto del virus en base a una zona concreta permite compararlo de forma más proporcional."
+            </p>
+
+            <p class="small_title">Velocidad de propagación</p>
+
+            <p class="section_paragraph indent">
+                Otro factor importante a considerar es la velocidad de propagación. <a href="https://www.eldesconcierto.cl/2020/04/01/incidencia-mortalidad-y-propagacion-las-cifras-claves-para-entender-el-impacto-del-covid-19-en-chile/">El Desconcierto</a> calculó por cuánto se han multiplicado los casos en los últimos tres días y también en los tres días anteriores a éstos, tanto en el conjunto del país como en cada región. En total se calculó el ritmo de propagación en dos momentos distintos: desde el día 25 hasta el 28 de marzo, por un lado, y desde el 28 hasta el 31. Por ejemplo, el conjunto de Chile ha multiplicado los contagios por 1,4 en los últimos tres días, sin embargo, el ritmo ha disminuido respecto a los tres días anteriores a éstos (del 25 al 28), cuando los casos se multiplicaron por 1,7.
+            </p>
+            <p class="section_paragraph">
+                Según un artículo de <a href="https://www.eldesconcierto.cl/2020/04/01/incidencia-mortalidad-y-propagacion-las-cifras-claves-para-entender-el-impacto-del-covid-19-en-chile/">El Desconcierto</a>, en Sudamérica, aunque Brasil es el país que registra más casos de contagios, Chile es el país con una tasa de incidencia más alta (en relación al conjunto de habitantes del país). 
+                <br><br>
+                Lo sigue Ecuador y Uruguay. Chile además destaca por estar entre los países que tienen una tasa de letalidad menor a nivel sudamericano (0,4), junto con Uruguay. El coronavirus ha sido considerablemente más activo en Sudamérica que en los países del Caribe.
+            </p>
+            
+            <h4 class="section_subtitle" id="anuncios">Anuncios realizados</h4>
+
+            <p class="small_title">Clasificación de los fallecidos como recuperados</p>
+
+            <p class="section_paragraph indent">
+                Jaime Mañalich, ministro de sanidad chileno, hizo saber que los fallecidos por COVID-19 serían contabilizados como recuperados, esto debido a que, como fallecidos, son incapaces de transmitir la enfermedad. “Tenemos 898 pacientes que ya han dejado de ser contagiantes, que no son una fuente de contagio para otros y los incluimos como recuperados. Estas son las personas que han cumplido 14 días de diagnostico o que desgraciadamente han fallecido”, explico Mañalich en rueda de prensa.
+            </p>
+            <p class="section_paragraph">
+                Esta forma de contabilizar que aseguran que han adoptado por la recomendación de “expertos internacionales”, da mucho de qué hablar, principalmente por el carácter ético del asunto. Sin embargo, a niveles de cálculo, es posible restar los fallecidos a los recuperados; esto debido a que el porcentaje de fallecidos suele ser mínimo. Además, en el modelo SIR (modelo matemático en el cual se basa el estado chileno para estudiar el crecimiento de la pandemia) se toma a los recuperados y fallecidos como "Removidos". Posiblemente, esto generó confusión por parte del estado al clasificar los fallecidos como recuperados, cuando en realidad ambas categorías forman parte de un todo a efectos de cálculo en el modelo SIR.
+            </p>
+
+            <p class="small_title">Comunas sin casos</p>
+
+            <p class="section_paragraph indent">
+                La Asociación Chilena de Municipalidades (AChM) elaboró un informe en el que se detalla cuáles son las comunas del país, que hasta los momentos, no han registrado casos positivos de Covid-19.
+            </p>
+
+            <p class="section_paragraph">
+                Según lo escrito, basado en el octavo informe epidemiológico entregado por el Ministerio de Salud, son 107 las comunas que aún están libres de contagio, que representa el 31,2 por ciento del total.
+            </p>
+
+            <p class="small_title"><b>¿Qué comunas no tienen casos de COVID-19 en la Zona Norte?</b></p>
+
+            <ul class="itemList">
+                <li>
+                    - Arica y Parinacota: Camarones, General Lagos y Putre
+                </li>
+                <li>
+                    - Tarapacá: Camiña, Colchane, Huara y Ollagüe
+                </li>
+                <li>
+                    - Antofagasta: Sierra Gorda    
+                </li>
+                <li>
+                    - Atacama: Alto del Carmen Caldera, Chañaral, freirina, Huasco y Vallenar
+                </li>
+                <li>
+                    - Coquimbo: Andacollo, Canela, Combarbalá, La Higuera, Monte Patria, Paiguano, Punitaqui y Vicuña.
+                </li>
+            </ul>
+
+            <p class="small_title"><b>¿Qué comunas no tienen casos de COVID-19 en la Zona Sur?</b></p>
+
+            <ul class="itemList">
+                <li>
+                    - Ñuble: Cobquecura, portezuelo y Treguaco
+                </li>
+                <li>
+                    - Biobío: Antuco, Cañete, Contulmo, lebu, los Álamos, Quilaco, Quilleco, San Rosendo, Santa Juana.
+                </li>
+                <li>
+                    - La Araucanía: Tucapel, Lonquimay, Los Sauces, Lumaco, Melipeuco y Puerto Saavedra.  
+                </li>
+                <li>
+                    - Los Ríos: Los Lagos y Panguipulli.
+                </li>
+                <li>
+                    - Los Lagos: Chonchi, Cochamó, Curaco de Vélez, Dalcahue, Fresia, Futaleufú, Palena, Puqueldón, Queilén, Quellón y Quemchi.
+                </li>
+                <li>
+                    - Aysén: Cisnes, Cochrane, Guaitecas, Lago Verde, O’Higgins y Río Ibáñez.
+                </li>
+                <li>
+                    - Magallanes: Laguna Blanca, Primavera, Río Verde, San Gregorio, Timaukel y Torres del Paine.
+                </li>
+            </ul>
+
+            <p class="small_title">Estrategias aplicadas por Chile</p>
+
+            <p class="section_paragraph indent">
+                El Premio Nacional de Ciencias Exactas y académico de la Facultad de Ciencias, Miguel Kiwi, y el investigador del Centro para el Desarrollo de la Nanociencia y la Nanotecnología (CEDENNA), Rafael I. González, advierten que la estrategia chilena para enfrentar el nuevo coronavirus, requiere "un testeo de la población a gran escala, capaz de seguir el crecimiento del contagio de manera adecuada". Esto con el fin de aplanar la curva; sin embargo, según los expertos desde fines de marzo se sabe verdaderamente dónde está la curva de contagios.
+            </p>
+
+            <p class="section_paragraph">
+                Cada país adapta las estrategias disponibles a su realidad; a continuación se resumirán las opciones en dos grandes estrategias, cuyo éxito en mitigar los efectos del COVID-19 depende de la prolijidad con que se ejecuten.
+            </p>
+
+            <p class="section_paragraph">
+                <ul class="itemList">
+                    <li>
+                        - <span class="itemColor">Estrategia A:</span> Estrategia en la que se basa Chile, costa de un alto número de testeos diarios. Se definen cuarentenas locales y dinámicas, las que dependen del número de contagiados activos. Esto complementado con medidas de aislamiento social, seguimiento de contagios y contactos. 
+                    </li>
+                    <li>
+                        - <span class="itemColor">Estrategia B:</span> Adoptada por aquellos países admiten que no son capaces de hacer el número de testeos diarios necesarios para seguir la curva de contagios apropiadamente (pueden darse cuenta de ello temprano, o muy tarde). Por lo tanto, se recurre a una cuarentena total o parcial en el país (estado de supresión), lo que permite reforzar las medidas estratégicas de contención, dar tiempo para que aumente la capacidad de testeo y mejorar toda la infraestructura sanitaria, entre otras medidas. 
+                        <br><br>
+                        Esta estrategia, cuando se ha tomado tempranamente, ha sido presentada por las autoridades como una forma de reducir las pérdidas humanas. Así lo hizo Bélgica, que tiene 11 millones de habitantes y casi dos veces el número de camas UCI que tenía Chile antes de 2020: anunció cuarentena total cuando llevaba cerca de 1.500 casos confirmados.                     
+                        <br><br>
+                        Países como Italia, España y Reino Unido, acudieron a la estrategia B, la cuarentena total, de forma tardía. Italia contaba con 9000 contagios cuando fue decretada; España unos 4200 y Reino Unido más de 6600 casos respectivamente.
+                    </li>
+                </ul>
+            </p>
+
+            <hr>    
+            
+            <p class="section_paragraph">
+                Las cuarentenas tienen muchos problemas asociados, sobre todo para los sectores más vulnerables. Esos problemas se agudizan a medida que estas cuarentenas se extienden. Si se deben decretar repentinamente, como en Reino Unido, Italia o España, es difícil saber cuánto tiempo tomarán. Siguiendo la estrategia A, se pueden evitar esas cuarentenas prolongadas. Pero para lograr eso se requiere un testeo a gran escala, capaz de seguir el crecimiento del contagio de manera adecuada.
+            </p>
+
+            <p class="section_paragraph">
+                De otra forma, si se pierde de vista la tasa de crecimiento del número de contagios, se corre el peligro de descubrir que la estrategia falló cuando los contagiados graves llegan en masa a los hospitales y colapsen el sistema.
+            </p>
+
+            <p class="section_paragraph">
+                Esto plantea una pregunta clave respecto de la capacidad de Chile en ser exitoso siguiendo la estrategia A:
+            </p>
+
+            <p class="small_title">¿Está Chile testeando lo suficiente para seguir la curva de contagios, y por lo tanto, llevar a cabo con éxito la estrategia A?</p>
+
+            <p class="section_paragraph indent">
+                La respuesta a ello es negativa, y se explicará de manera simple la causa. Lo primero que se debe tener en cuenta es que sólo el 1 de abril el Ministerio de Salud empezó a reportar “el número de exámenes informados las últimas 24 horas” en sus “reportes diarios”.
+            </p>
+
+            <p class="section_paragraph">
+                Desde entonces, un análisis estadístico de las cifras indica que la cantidad de casos nuevos depende de la cantidad de test que se hacen. Es decir: mientras más test hace el ministerio, más contagiados aparecen.
+            </p>
+
+            <p class="section_paragraph">
+                Matemáticamente, esto se puede definir como una relación lineal, es decir, el número de casos nuevos es proporcional al número de test por día. Si calculamos el porcentaje de casos confirmados, sobre el total de test realizados tenemos que es de 9,8 por ciento. Dicho de otro modo, la relación indica que por cada 10 test aplicados hay 1 caso confirmado. A esta relación la llamamos “positividad”.
+            </p>
+
+            <p class="section_paragraph">
+                Solo dos mediciones informadas por el ministerio escapan a este promedio de positividad y son los test realizados el 9 de abril (429 casos nuevos con 7.942 test) y el 12 de abril (283 casos nuevos con 5.897 test). La positividad de estas dos fechas es más baja: 5,4 y 4,8 por ciento respectivamente. Hasta donde se conoce, no hay una explicación clara por parte del ministerio sobre el origen de esta gran diferencia.       
+            </p>
+
+            <p class="small_title">
+                Acerca de la curva
+            </p>
+
+            <p class="section_paragraph indent">
+                Nueva York reportó el primer caso un día antes que Chile y al comienzo hizo un número de test diarios levemente mayor, registrando un número de casos confirmados similar. Todo cambió abruptamente cuando el estado de Nueva York aumentó fuertemente el testeo. Así, mientras el día 13 –contado desde el primer contagio-, el estado de Nueva York registraba 942 casos confirmados a partir de 1.932 test diarios, una semana más tarde, es decir en el día 20, registraba 20.875 casos confirmados acumulados y reportaba 16.812 test diarios.
+            </p>
+
+            <p class="section_paragraph">
+                Chile, en el día 13 tenía 75 casos confirmados acumulados cuando reportaba unos 1.000 test diarios aproximadamente. El día 20, Chile alcanza 632 casos confirmados, acumulados con 900 test reportados aquel día.
+            </p>
+
+            <p class="section_paragraph">
+                El 15 de abril (el día 44 desde el primer contagio) Chile estaba haciendo menos de 4.000 test diario promedio y acumulaba 8.273 casos confirmados. Mientras Nueva York llegó a 202.208 casos confirmados, es decir, más de 24 veces lo reportado en Chile.
+            </p>
+
+            <p class="section_paragraph">
+                Estos datos dan a pensar que Chile no está aplanando la curva; en realidad la perdió de vista, siendo optimistas, el 1 de abril. Siendo pesimistas, se perdió a fines de marzo, cuando Chile tardaba unos 4 días en duplicar el número de casos confirmados. Se estima que Chile dejó de testear bien alrededor del 25 de marzo.
+            </p>
+
+            <p class="section_paragraph">
+                Para estimar cuantos test se deben estar haciendo ahora; suponiendo que a partir del 1 de abril, cada 4 días, se debía haber duplicado el número de tests, para seguir la curva de contagios, factor fundamental en el éxito de la estrategia A de cuarentenas dinámicas. Por medio de suposiciones, se dice que el 1 de abril se realizaron 3.500 test; por consiguiente, el 5 de abril se deben haber hecho 7.000 test; el 9 de abril 14.000; el 13 de abril 28.000,el 17 de abril 56.000 test, y así sucesivamente.
+            </p>
+
+            <p class="section_paragraph">
+                Cabe aclarar que ninguna estrategia de fuerte testeo, logra detectar con exactitud el número real de contagios en un país. Aunque se testeara a todo el país a la vez, aun así, se tendrían falsos positivos o negativos. Lo que se logra con un gran número de testeos, es que la curva de casos confirmados sea un reflejo del comportamiento del contagio real. Así si aumenta el contagio real, lo haga la curva de casos confirmados, y si se reduce la tasa de contagio real, se refleje en un aplanamiento de la curva.
+            </p>
+
+            <p class="section_paragraph">
+                Un bajo nivel de testeo hace muy difícil aplicar modelos predictivos, que por ejemplo, nos avisen de cuándo sería el peak de contagios o siquiera una estimación de la demanda para los próximos días en el sistema de salud. No se puede tomar decisiones de cuarentenas locales en base a este testeo, es totalmente deficiente.
+            </p>
+
+            <p class="section_paragraph">
+                La capacidad de testeo requiere de un conjunto de acciones logísticas de laboratorios, reactivos, personal, transporte y un largo etc. Actualmente, muchos países hacen grandes esfuerzos por aumentar el testeo, pero no lo han logrado en los pocos días que se requiere, producto del explosivo incremento de contagios.
+            </p>
+
+            <p class="small_title"><b>Contabilización de asintomáticos, y un eminente disparo de la curva</b></p>
+
+            <p class="section_paragraph">
+                Fue el propio ministro de Salud, Jaime Mañalich, quien reveló la “nueva” nomenclatura para determinar quiénes pasan a ser los contagiados: “hemos incorporado dos tipos de casos de personas notificadas con Coronavirus: 1° los pacientes con síntomas y exámenes con PCR positivo al principio de la enfermedad; y, 2° personas que tienen contacto con enfermos y -además- dan PCR positivo”.
+            </p>
+
+            <p class="section_paragraph">
+                Esta situación levantó severas críticas, dado que los asintomáticos con PCR positivo sí son pacientes con Coronavirus, pero no estaban dentro del conteo total nacional. La indignación social obligó al Ministerio a rectificar la información durante la noche del 29 de abril, lo que alteró considerablemente el conteo y, además, terminó con la idea apresurada de que Chile ya había logrado aplanar la curva.
+            </p>
+
+            <p class="section_paragraph">
+                Con respecto a la situación del país, y dada la nueva fórmula, para el día 30 de abril: “se registraron 888 nuevos casos de COVID-19, de los cuales 780 corresponden a personas enfermas y 108 son casos son asintomáticos; esto eleva la cifra total de contagiados a 16.023″, informó la Subsecretaria Paula Daza.
+            </p>
+
+        <h4 class="section_subtitle" id="question">Interrogantes</h4>
+
+        <p class="small_title">Conviene plantear ciertas interrogantes respecto a la pandemia, el factor de crecimiento y la curva</p>
+
+        <p class="section_paragraph">
+            <b>¿De qué depende que suba el factor?</b>
+        </p>
+
+        <p class="section_paragraph">
+            <ul>
+                <li>
+                    1. Dependerá del nivel de exposición que tengan las personas al relacionarse con otras personas, tomándose en cuenta que, científicamente, 1 persona puede contagiar a 3 personas.
+                </li>
+                <br>
+                <li>
+                    2. El no cumplimiento de las medidas sanitarias establecidas por el estado para el control de la pandemia
+                </li>
+                <br>
+                <li>
+                    3. La fórmula:
+                    <br><br>
+                    <div class="col-lg-6 col-md-12">
+                        <img class="blackboard" src="../assets/factor1.jpg" alt="">
+                    </div> 
+                </li>
+            </ul>
+        </p>
+
+        <hr>
+
+        <p class="section_paragraph">
+            <b>¿Qué medida aplica el estado para aplanar la curva?</b>
+        </p>
+
+        <p class="section_paragraph">
+            Decreta la cuarentena total o parcial, según el caso.
+        </p>
+
+        <hr>
+
+        <p class="section_paragraph">
+            <b>¿Por qué el estado aplana la curva?</b>
+        </p>
+
+        <p class="section_paragraph">
+            Para disminuir la cantidad de gente infectada, con el propósito de evitar el colapso del sistema de salud.
+        </p>
+
+        <hr>
+
+        <p class="section_paragraph">
+            <b>Aplanar la curva</b>
+        </p>
+
+        <p class="section_paragraph">
+            Observaremos que aplanar la curva es romper la tendencia en el crecimiento de la gráfica exponencial.
+        </p>
+
+        <hr>
+
+        <p class="section_paragraph">
+            <b>¿Cuando el estado aplana la curva baja el nivel de contagios?</b>
+        </p>
+
+        <p class="section_paragraph">
+            Sí, solo se hace para que no colapsen los sistemas de salud (hospitales, clínicas...) tanto en insumos como en equipos. La cantidad de contagiados es la misma, solo que para el período de recuperación va a durar más tiempo y pueden haber 2 puntos de inflexión.
+        </p>
+
+        <hr>
+
+        <p class="section_paragraph">
+            <b>¿Qué tipo de gráfico representa aplanar la curva?</b>
+        </p>
+
+        <p class="section_paragraph">
+            <ul>
+                <li>Platicúrtica</li>
+                <li>Leptocúrtica</li>
+                <li>Mesocúrtica</li>
+            </ul>
+        </p>
+
+        <hr>
+
+        <p class="section_paragraph">
+            <b>¿Cómo se llega al punto máximo de la curva?</b>
+        </p>
+
+        <p class="section_paragraph">
+            <ul>
+                <li>Peak: vértice de la pirámide.</li>
+                <li>Punto de inflexión</li>
+            </ul>
+        </p>
+
+        <hr>
+
+        <p class="section_paragraph">
+            <b>¿El aplanar la curva disminuye la tasa de factor de riesgo?</b>
+        </p>
+
+        <p class="section_paragraph">
+            Sí, porque la gente está en cuarentena y la probabilidad de contagio disminuye.
+        </p>
+
+        <hr>
+
+        <p class="section_paragraph">
+            <b>¿El doble peak refleja la realidad de la curva de tendencia?</b>
+        </p>
+
+        <p class="section_paragraph">
+            No, esta refleja que se está aplanando la curva, la verdadera realidad de la curva de tendencia se va a reflejar en dos meses, que llegue a su verdadera cima.
+        </p>
+
+        <hr>
+
+        <p class="section_paragraph">
+            <b>¿Cuándo una persona contagiada pasa a formar parte de las cifras del estado, en los medios de comunicación?</b>
+        </p>
+
+        <p class="section_paragraph">
+            15 a 20 días, aproximadamente.
+        </p>
+            
+        <hr>
+            <h4 class="section_subtitle" id="error">Errores en los datos</h4>
+            
+            <p class="section_paragraph indent">
+                Por inconsistencias en la información publicada, el Ministerio de Salud, a través de la subsecretaria Paula Daza, indicó que debió bajar "inmediatamente" el informe epidemiológico número nueve con las cifras del avance del coronavirus en territorios más acotados.
+            </p>
+
+            <p class="section_paragraph">
+                "He revisado el informe epidemiológico número nueve, el cual contiene errores y he ordenado bajarlo inmediatamente", señaló Paula Daza a través de su cuenta de Twitter.
+            </p>
+
+            <p class="section_paragraph">
+                En el fallido informe se señalaba que la comuna de María Pinto -que hasta la medición anterior se mantenía como una de las tres comunas de la Región Metropolitana sin registrar casos de coronavirus- aparecía saltando súbitamente a 217 positivos en tan solo dos días, convirtiéndose -de ser ciertos estos datos- en una de las comunas con más contagios de Covid-19.
+            </p>
+
+            <hr>
+<!-- 
+            <p class="section_paragraph">
+                Asimismo, existen otros factores a tener en cuenta:
+            </p>
+
+            <ul class="itemList">
+                <li>
+                    <span class="itemColor">Evidencia internacional: </span> El ministerio de sanidad de Chile se está guiando por evidencia internacional, lo cual no es factible ya que el umbral de salud (capacidad operativa) de otros países no es igual al del país.
+                </li>
+                <li>
+                    <span class="itemColor">Sensación de normalidad: </span> Decretada por parte del estado. Esto causa que la población sienta una falsa seguridad de salir, lo cual les lleva a permanecer fuera de sus hogares más de lo necesario.
+                </li>
+                <li>
+                    <span class="itemColor">Toque de Queda: </span>  Alto porcentaje de detenidos, a causa de lo expuesto en el anterior punto.
+                </li>
+            </ul>
+
+            <hr>
+
+            <p class="section_paragraph"><b>Reflexión:</b> La falta de criterio y la falta de estrategia, dificultan al estado el manejo eficiente de la situación.</p>
+            
+            <br>
+ -->
+            <h4 class="section_subtitle" id="advertencia">Advertencia de la Facultad de Matemáticas de la UC</h4>
+
+            <p class="section_paragraph indent">
+                En la actual emergencia sanitaria que vive Chile, académicos de la Facultad de Matemáticas de la Universidad Católica analizaron la curva del COVID-19, aplicando las matemáticas para despejar cuáles son las posibilidades de vencer al coronavirus y si son suficientes las medidas tomadas.  
+            </p>
+
+            <p class="section_paragraph">
+                Los doctores en Matemática, Duván Henao y Gregorio Moreno, señalan: “de acuerdo con las predicciones basadas en el Sistema SIR, con información hasta el 12 de abril de 2020, si seguimos así, se espera que los hospitales de Chile colapsen en junio”.   
+            </p>
+
+            <p class="section_paragraph">
+                Los especialistas del estudio señalan que “en España e Italia ya están frenando el virus: ¿Cómo podemos hacerlo nosotros? En ambos países europeos, la tasa de crecimiento (nuevos casos dividido por infectados activos) bajó al 6% y al 4,1%, respectivamente; en Chile sigue en 8,9%, siendo un porcentaje mejor que el 20% que se registraba a fines de marzo (el aislamiento empieza a dar frutos)”, sostienen.    
+            </p>
+
+            <p class="section_paragraph">
+                Sin embargo, son claros al destacar que “no superaremos la pandemia si no bajamos al 7% o idealmente, al 6%”, explica el profesor Moreno. “En una semana se recuperaron más de 1.400 personas, pero hubo más de 2.700 casos nuevos. Necesitamos que esto se invierta, o sea, que haya más recuperados que nuevos infectados”, agregan.    
+            </p>
+
+            <p class="section_paragraph">
+                “Es por eso que el llamado a que las personas que puedan mantener aislamiento voluntario y aquellas que se encuentran en zonas de cuarentena”, es importante, ya que “juntos podemos reducir la tasa de crecimiento del virus al menos a un 7%”, indica el profesor Henao.   
+            </p>
+        
+            <div class="source">
+
+                <br>
+                <b>Fuentes de información (click en cada enlace para ver el artículo)</b>
+      
+                <hr>
+                <a href="https://www.pauta.cl/ciencia-y-tecnologia/las-cifras-del-covid-19-chile-comparacion-con-paises-misma-cantidad-dias">
+                  Pauta Chile: Las cifras del Covid-19: cómo estamos en Chile y la comparación con otros países.
+                </a>
+      
+                <hr>
+                <a href="https://www.eldesconcierto.cl/2020/04/01/incidencia-mortalidad-y-propagacion-las-cifras-claves-para-entender-el-impacto-del-covid-19-en-chile/">
+                 El desconcierto: Incidencia, mortalidad y propagación: Las cifras claves para entender el impacto del COVID-19 en Chile.
+                </a>
+      
+                <hr>
+                <a href="https://www.lavanguardia.com/internacional/20200413/48469884428/chile-contabiliza-muertos-recuperados-no-contagiar-coronavirus.html">
+                  La Vanguardia: Chile contabiliza a los muertos como recuperados “porque ya no pueden contagiar”.
+                </a>
+
+                <hr>
+                <a href="https://chile.as.com/chile/2020/04/20/tikitakas/1587389524_792900.html">
+                    AS Chile: Coronavirus en Chile: qué comunas no tienen casos de Covid-19 registrados.
+                </a>
+
+                <hr>
+                <a href="https://www.uchile.cl/noticias/162613/covid-19-chile-no-esta-aplanando-la-curva-la-perdimos-de-vista">
+                    Universidad de Chile. COVID-19: Chile no está aplanando la curva, la perdimos de vista 
+                </a>
+
+                <hr>
+                <a href="https://www.elmostrador.cl/noticias/pais/2020/04/14/si-seguimos-asi-los-hospitales-de-chile-colapsaran-en-junio-la-advertencia-de-los-academicos-de-la-facultad-de-matematicas-de-la-uc-respecto-a-la-curva-del-covid-19/">
+                    El Mostrador: “Si seguimos así, los hospitales de Chile colapsarán en junio”.
+                </a>
+
+                <hr>
+      
+            </div>
+
+            <a href="./model.html" class="btn btn-primary" style="float:right">Ver modelos matemáticos >></a>
+
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 section bg-primary static" id="static">
+            <h2 class="section_title text_index">Índice de contenido</h2>
+            <ul class="index text_index">
+                <a href="#intro" class="item">Introducción</a>
+                <a href="#anuncios" class="item">Anuncios realizados</a>
+                <a href="#cuestion" class="item">Interrogantes</a>
+                <a href="#error" class="item">Errores en los datos</a>
+                <a href="#advertencia" class="item">Advertencia de la Facultad de Matemáticas de la UC</a>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Botón que lleva al índice -->
+    <button class="btn btn-primary showIndex" id="index">Ver índice</button>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="../script/showIndex.js"></script>
+
+</body>
+</html>
