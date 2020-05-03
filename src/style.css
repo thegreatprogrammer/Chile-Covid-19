@@ -100,7 +100,7 @@ a:hover{
     background-color: #ffffffea;
     border-radius: 5px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
-    padding: 2.5em;
+    padding: 1em;
     padding-top: 5em;
     width: 100%;
 }
@@ -178,6 +178,7 @@ a:hover{
 }
 
 .static{
+    display: none;
     position: fixed;
     right: 0;
     top: 3em;
@@ -194,7 +195,7 @@ a:hover{
 
 .showIndex{
     bottom: 0;
-    display: none;
+    display: block;
     font-size: 1.2em;
     left: 0;
     position: fixed;
@@ -333,13 +334,6 @@ a:hover{
       width: 100%;
     }
 
-    .static{
-        display: block;
-    }
-
-    .showIndex{
-        display: none;
-    }
   }
 
 @media (max-width: 990px) {
@@ -348,10 +342,6 @@ a:hover{
         width: 100%;
     }
 
-    .showIndex{
-        display: block;
-    }
-    
     .static{
         display: none;
         width: 100%;
