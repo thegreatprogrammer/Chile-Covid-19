@@ -153,19 +153,19 @@ export class DATA {
           if(i === confirmed.length){
 
             dato = confirmed[i-1][0].join('/');
-            let newFecha = moment().format('D/M/YY');
 
-            if(dato === newFecha){
-              factor = 0;
-              proyeccion.innerHTML += 
-              `
-                <tr>
-                  <th scope="row">${dato}</th>
-                  <td>${Number(document.getElementById('confirm1').innerText) - confirmed[i-1][1]}</td>
-                  <td>${factor}</td>
-                  <td>${document.getElementById('confirm1').innerText}</td>
-                </tr>
-              `
+            factor = ((Number(document.getElementById('confirm1').innerText)/(confirmed[i-1][1]))).toFixed(3);
+
+            if(factor !== 1.000 && Number(document.getElementById('recover1').innerText) - confirmed[i-1][1] !== 0){
+                proyeccion.innerHTML += 
+                `
+                  <tr>
+                    <th scope="row">${moment().format('D/M/YY')}</th>
+                    <td>${Number(document.getElementById('confirm1').innerText) - confirmed[i-1][1]}</td>
+                    <td>${factor}</td>
+                    <td>${Number(document.getElementById('confirm1').innerText)}</td>
+                  </tr>
+                `
             }
 
           }
@@ -215,21 +215,21 @@ export class DATA {
           if(i === recovered.length){
 
             dato = recovered[i-1][0].join('/');
-            let newFecha = moment().format('D/M/YY');
 
-            if(dato === newFecha){
-              factor = 0;
-              recuperados.innerHTML += 
-              `
-                <tr>
-                  <th scope="row">${dato}</th>
-                  <td>${Number(document.getElementById('recover1').innerText) - recovered[i-1][1]}</td>
-                  <td>${factor}</td>
-                  <td>${document.getElementById('recover1').innerText}</td>
-                </tr>
-              `
+            factor = ((Number(document.getElementById('recover1').innerText)/(recovered[i-1][1]))).toFixed(3);
+
+            if(factor !== 1.000 && Number(document.getElementById('recover1').innerText) - recovered[i-1][1] !== 0){
+                recuperados.innerHTML += 
+                `
+                  <tr>
+                    <th scope="row">${moment().format('D/M/YY')}</th>
+                    <td>${Number(document.getElementById('recover1').innerText) - recovered[i-1][1]}</td>
+                    <td>${factor}</td>
+                    <td>${Number(document.getElementById('recover1').innerText)}</td>
+                  </tr>
+                `
             }
-
+            
           }
 
           else{
@@ -279,20 +279,19 @@ export class DATA {
           if(i === deaths.length){
 
             dato = deaths[i-1][0].join('/');
-            let newFecha = moment().format('D/M/YY');
 
-            if(dato === newFecha){
-              factor = 0;
-              dato = moment().format('D/M/YY');
-              fallecidos.innerHTML += 
-              `
-                <tr>
-                  <th scope="row">${dato}</th>
-                  <td>${Number(document.getElementById('death1').innerText) - deaths[i-1][1]}</td>
-                  <td>${factor}</td>
-                  <td>${document.getElementById('death1').innerText}</td>
-                </tr>
-              `
+            factor = ((Number(document.getElementById('death1').innerText)/(confirmed[i-1][1]))).toFixed(3);
+
+            if(factor !== 1.000 && Number(document.getElementById('death1').innerText) - deaths[i-1][1] !== 0){
+                fallecidos.innerHTML += 
+                `
+                  <tr>
+                    <th scope="row">${moment().format('D/M/YY')}</th>
+                    <td>${Number(document.getElementById('death1').innerText) - deaths[i-1][1]}</td>
+                    <td>${factor}</td>
+                    <td>${Number(document.getElementById('death1').innerText)}</td>
+                  </tr>
+                `
             }
 
           }
@@ -338,7 +337,7 @@ export class DATA {
 
      /* const newFilter = confirmed.filter( confirm => new Date(confirm[0].join('/')).toLocaleDateString() > new Date('2020-04-14').toLocaleDateString());
 
-      console.log(newFilter);
+      console.log(newFilter); 
       /*for(let i = 0; i <= deaths.length; i++){
 
         let factor, dato;
