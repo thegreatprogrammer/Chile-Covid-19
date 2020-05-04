@@ -235,6 +235,10 @@ a:hover{
     padding: 0.5em;
 }
 
+.table{
+    width: 100%;
+}
+
 .grafico p{
     text-align: center;
     margin-top: 0.5em;
