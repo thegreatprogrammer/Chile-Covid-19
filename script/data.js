@@ -280,7 +280,8 @@ export class DATA {
 
             dato = deaths[i-1][0].join('/');
 
-            factor = ((Number(document.getElementById('death1').innerText)/(confirmed[i-1][1]))).toFixed(3);
+            factor = ((Number(document.getElementById('death1').innerText)/(deaths[i-1][1]))).toFixed(3);
+            
 
             if(factor !== 1.000 && Number(document.getElementById('death1').innerText) - deaths[i-1][1] !== 0){
                 fallecidos.innerHTML += 

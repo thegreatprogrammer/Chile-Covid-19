@@ -109,100 +109,63 @@
             <p class="section_paragraph">Gráficos cortesía de <a href="https://www.pauta.cl/ciencia-y-tecnologia/las-cifras-del-covid-19-chile-comparacion-con-paises-misma-cantidad-dias">Pauta</a></p>
 
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <p class="small_title">Cuadro Proyección COVID-19</p>
-                    <table class="table table-bordered table-dark" style="width: 100%">
-                        <thead>
-                            <tr>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Cantidad Día</th>
-                                <th scope="col">Factor</th>
-                                <th scope="col">Total</th>
-                            </tr>
-                        </thead>
-                        <tbody id="proyeccion">
-                        </tbody>  
-                    </table>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p class="small_title">Cuadro Proyección COVID-19</p>
+                        <table class="table table-bordered table-dark" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Cantidad Día</th>
+                                    <th scope="col">Factor</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="proyeccion">
+                            </tbody>  
+                        </table>
+                    </div>
+    
+                    <div class="col-sm-12">
+                        <p class="small_title">Cuadro Recuperados COVID-19</p>
+                        <table class="table table-bordered table-dark" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Cantidad Día</th>
+                                    <th scope="col">Factor</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recuperados">
+                            </tbody>  
+                        </table>
+                    </div>
+    
+                    <div class="col-sm-12">
+                        <p class="small_title">Cuadro Fallecidos COVID-19</p>
+                        <table class="table table-bordered table-dark" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Cantidad Día</th>
+                                    <th scope="col">Factor</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="fallecidos">
+                            </tbody>  
+                        </table>
+                    </div>
+    
+                    <p class="section_paragraph">
+                        Para información específica de las estadísticas de la región de Antofagasta, click en este <a href="https://experience.arcgis.com/experience/13813048c0d54a61bc53d536225d5e28/">enlace</a>.
+                        <br>
+                        Información extra, en este <a href="https://www.goreantofagasta.cl/gobierno-regional/goreantofagasta/2016-09-14/170540.html">enlace</a>.
+                    </p>
                 </div>
-
-                <div class="col-sm-12">
-                    <p class="small_title">Cuadro Recuperados COVID-19</p>
-                    <table class="table table-bordered table-dark" style="width: 100%">
-                        <thead>
-                            <tr>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Cantidad Día</th>
-                                <th scope="col">Factor</th>
-                                <th scope="col">Total</th>
-                            </tr>
-                        </thead>
-                        <tbody id="recuperados">
-                        </tbody>  
-                    </table>
-                </div>
-
-                <div class="col-sm-12">
-                    <p class="small_title">Cuadro Fallecidos COVID-19</p>
-                    <table class="table table-bordered table-dark" style="width: 100%">
-                        <thead>
-                            <tr>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Cantidad Día</th>
-                                <th scope="col">Factor</th>
-                                <th scope="col">Total</th>
-                            </tr>
-                        </thead>
-                        <tbody id="fallecidos">
-                        </tbody>  
-                    </table>
-                </div>
-
-                <!-- <p class="small_title">Cuadro SIR</p>
-                <table class="table table-bordered table-dark">
-                    <thead>
-                        <tr>
-                            <th scope="col">Fecha</th>
-                            <th scope="col">Caso Contagiados</th>
-                            <th scope="col">Recuperados</th>
-                            <th scope="col">Caso Activo Contagiados</th>
-                            <th scope="col">Caso Nuevo Infectados</th>
-                            <th scope="col">%</th>
-                        </tr>
-                    </thead>
-                    <tbody id="SIR">
-                    </tbody>  
-                </table> -->
-
-                <!--
-                <p class="small_title">Cuadro Proyección COVID-19</p>
-                <div class="col-sm-12">
-                    <iframe width="600" height="700" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=CEB2788E9B013158%21124&authkey=%21AK4NfoWs0zgTvHY&em=2&wdAllowInteractivity=False&ActiveCell='Proyecci%C3%B3n'!A1&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
-                </div>
-
-                <p class="small_title">Cuadro SIR</p>
-                <div class="col-sm-12">
-                    <iframe width="600" height="700" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=CEB2788E9B013158%21127&authkey=%21AOX9JUsM3qNr3W0&em=2&wdAllowInteractivity=False&ActiveCell='Hoja1'!A2&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
-                </div>
-
-                <p class="small_title">Cuadro Recuperados</p>
-                <div class="col-sm-12">
-                    <iframe width="600" height="700" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=CEB2788E9B013158%21125&authkey=%21AGCMtq_SuY_oqW8&em=2&wdAllowInteractivity=False&ActiveCell='Hoja1'!A2&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
-                </div>
-
-                <p class="small_title">Cuadro Fallecidos</p>
-                <div class="col-sm-12">
-                    <iframe width="600" height="700" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=CEB2788E9B013158%21126&authkey=%21APyyrzTRKnKnPFU&em=2&wdAllowInteractivity=False&ActiveCell='Hoja1'!A2&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
-                </div>
-  -->
-                <p class="section_paragraph">
-                    Para información específica de las estadísticas de la región de Antofagasta, click en este <a href="https://experience.arcgis.com/experience/13813048c0d54a61bc53d536225d5e28/">enlace</a>.
-                    <br>
-                    Información extra, en este <a href="https://www.goreantofagasta.cl/gobierno-regional/goreantofagasta/2016-09-14/170540.html">enlace</a>.
-                </p>
             </div>
-
-
         </div>
         <a href="./end.html" class="btn btn-primary" style="float:right">Ver conclusiones >></a>
         </div>
