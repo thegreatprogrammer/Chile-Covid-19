@@ -156,7 +156,7 @@ export class DATA {
 
             factor = ((Number(document.getElementById('confirm1').innerText)/(confirmed[i-1][1]))).toFixed(3);
 
-            if(factor !== 1.000 && Number(document.getElementById('recover1').innerText) - confirmed[i-1][1] !== 0){
+            if(factor !== 1.000 && Number(document.getElementById('confirm1').innerText) - confirmed[i-1][1] !== 0){
                 proyeccion.innerHTML += 
                 `
                   <tr>
