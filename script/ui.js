@@ -81,9 +81,9 @@ export class Interfaz{
         info.innerHTML = `
         <div class="todayData text-center">
             <h6>Fecha última actualización: ${date}</h6>
-            <h5>Casos confirmados: ${confirmed}</h5>
-            <h5>Fallecidos: <span style="color: #FACC2E; font-weight: bold">${deaths}</span></h5>
-            <h5>Recuperados: <span style="color: #40FF00; font-weight: bold">${recovered}</span></h5>
+            <h5>Casos confirmados: <span id="confirm1">${confirmed}</span></h5>
+            <h5>Fallecidos: <span id="death1" style="color: #FACC2E; font-weight: bold">${deaths}</span></h5>
+            <h5>Recuperados: <span id="recover1" style="color: #40FF00; font-weight: bold">${recovered}</span></h5>
         </div>
     `;
     }

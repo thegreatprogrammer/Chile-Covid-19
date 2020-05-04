@@ -20,7 +20,7 @@
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="navbar-collapse collapse" id="navbarColor01">
             <ul class="navbar-nav ml-auto">
             <li class="nav-item mr-2">
@@ -41,7 +41,7 @@
             </ul>
         </div>
     </nav>
-        
+
 
     <div class="row">
         <div class="col-sm-12 section">
@@ -75,9 +75,9 @@
             <p class="small_title" id="Fallecidos">Fallecidos</p>
             <canvas id="chart3" width="50%" height="25em"></canvas>
             <p id="n3" style="text-align: center; font-size: 0.6em">Días transcurridos</p>
-                 
+
             <h4 class="section_subtitle" id="ubicacion">Cantidad de casos por ubicación</h4>
-            
+
             <!-- Traído de https://www.gob.cl/coronavirus/cifrasoficiales/#resumen -->
 
             <div class="infogram-embed" data-id="d9e30e4b-e63c-4e02-a72a-eca4653f3283" data-type="interactive" data-title="Nuevo Mapa Coronavirus"></div><script>!function(e,i,n,s){var t="InfogramEmbeds",d=e.getElementsByTagName("script")[0];if(window[t]&&window[t].initialized)window[t].process&&window[t].process();else if(!e.getElementById(n)){var o=e.createElement("script");o.async=1,o.id=n,o.src="https://e.infogram.com/js/dist/embed-loader-min.js",d.parentNode.insertBefore(o,d)}}(document,0,"infogram-async");</script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogram.com/d9e30e4b-e63c-4e02-a72a-eca4653f3283" style="color:#989898!important;text-decoration:none!important;" target="_blank">Nuevo Mapa Coronavirus</a><br><a href="https://infogram.com" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Infogram</a></div>
@@ -97,7 +97,7 @@
                 style="padding:300.0000% 5px 5px 5px;background:rgba(0,0,0,0.03);border-radius:8px;"
                 width="40%"
             ></div>
-                
+
             <p class="small_title">Exámenes de PCR realizados</p>
 
             <div class="infogram-embed" data-id="3e092732-fa33-4b73-96bb-c19e37ec168b" data-type="interactive" data-title="Examenes de PCR realizados"></div><script>!function(e,i,n,s){var t="InfogramEmbeds",d=e.getElementsByTagName("script")[0];if(window[t]&&window[t].initialized)window[t].process&&window[t].process();else if(!e.getElementById(n)){var o=e.createElement("script");o.async=1,o.id=n,o.src="https://e.infogram.com/js/dist/embed-loader-min.js",d.parentNode.insertBefore(o,d)}}(document,0,"infogram-async");</script>
@@ -108,9 +108,67 @@
 
             <p class="section_paragraph">Gráficos cortesía de <a href="https://www.pauta.cl/ciencia-y-tecnologia/las-cifras-del-covid-19-chile-comparacion-con-paises-misma-cantidad-dias">Pauta</a></p>
 
-            
+
             <div class="row">
-                
+                <p class="small_title">Cuadro Proyección COVID-19</p>
+                <table class="table table-bordered table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Cantidad Día</th>
+                            <th scope="col">Factor</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="proyeccion">
+                    </tbody>  
+                </table>
+
+                <p class="small_title">Cuadro Recuperados COVID-19</p>
+                <table class="table table-bordered table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Cantidad Día</th>
+                            <th scope="col">Factor</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recuperados">
+                    </tbody>  
+                </table>
+
+                <p class="small_title">Cuadro Fallecidos COVID-19</p>
+                <table class="table table-bordered table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Cantidad Día</th>
+                            <th scope="col">Factor</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fallecidos">
+                    </tbody>  
+                </table>
+
+                <!-- <p class="small_title">Cuadro SIR</p>
+                <table class="table table-bordered table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Caso Contagiados</th>
+                            <th scope="col">Recuperados</th>
+                            <th scope="col">Caso Activo Contagiados</th>
+                            <th scope="col">Caso Nuevo Infectados</th>
+                            <th scope="col">%</th>
+                        </tr>
+                    </thead>
+                    <tbody id="SIR">
+                    </tbody>  
+                </table> -->
+
+                <!--
                 <p class="small_title">Cuadro Proyección COVID-19</p>
                 <div class="col-sm-12">
                     <iframe width="600" height="700" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=CEB2788E9B013158%21124&authkey=%21AK4NfoWs0zgTvHY&em=2&wdAllowInteractivity=False&ActiveCell='Proyecci%C3%B3n'!A1&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
@@ -130,19 +188,19 @@
                 <div class="col-sm-12">
                     <iframe width="600" height="700" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=CEB2788E9B013158%21126&authkey=%21APyyrzTRKnKnPFU&em=2&wdAllowInteractivity=False&ActiveCell='Hoja1'!A2&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
                 </div>
-
+  -->
                 <p class="section_paragraph">
                     Para información específica de las estadísticas de la región de Antofagasta, click en este <a href="https://experience.arcgis.com/experience/13813048c0d54a61bc53d536225d5e28/">enlace</a>.
                     <br>
                     Información extra, en este <a href="https://www.goreantofagasta.cl/gobierno-regional/goreantofagasta/2016-09-14/170540.html">enlace</a>.
                 </p>
             </div>
-            
+
 
         </div>
         <a href="./end.html" class="btn btn-primary" style="float:right">Ver conclusiones >></a>
         </div>
-        
+
         <div class="col-lg-4 col-md-4 section bg-primary static" id="static">
         <h2 class="section_title text_index">Índice de contenido</h2>
         <ul class="index text_index">
@@ -161,6 +219,7 @@
     <script async src="https:&#x2F;&#x2F;sdk.canva.com&#x2F;v1&#x2F;embed.js"></script>
     <script src="../script/showIndex.js"></script>
     <script src="../script/index.js" type="module"></script>
+    <script src="../script/cuadros.js" type="module"></script>
 
 
 </body>
