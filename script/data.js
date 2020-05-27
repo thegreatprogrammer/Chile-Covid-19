@@ -128,6 +128,31 @@ export class DATA {
       let recovered = orderArray(recoveredData);
       let deaths = orderArray(deathsData);
 
+      
+      // Confirmados
+      
+      let sumX = 0, sumY, count, averageX, averageY;
+
+     for(let i = 0; i <= confirmed.length; i++){
+        count = i + 1;
+        sumY += confirmed[i][1]
+        sumX += count;
+     }
+
+     // Average
+
+     averageX = sumX / count;
+     averageY= sumY/ count;
+
+     // Calculando y
+     let day, y;
+
+     for(let i = 0; i <= confirmed.length; i++){
+        count = i + 1;
+        day = confirmed[i][1]
+        y = day - averageY;
+      }
+
       // Confirmados 
 
       for(let i = 0; i <= confirmed.length; i++){
