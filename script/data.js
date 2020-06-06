@@ -223,7 +223,10 @@ export class DATA {
             factor = ((Number(document.getElementById('recover1').innerText)/(recovered[i-1][1]))).toFixed(3);
 
             if(factor !== 1.000 && Number(document.getElementById('recover1').innerText) - recovered[i-1][1] !== 0){
-                recuperados.innerHTML += 
+                
+             if(Number(document.getElementById('recover1').innerText) - recovered[i-1][1] > 0){
+       
+              recuperados.innerHTML += 
                 `
                   <tr>
                     <th scope="row">${moment().format('D/M/YY')}</th>
@@ -232,6 +235,7 @@ export class DATA {
                     <td>${Number(document.getElementById('recover1').innerText)}</td>
                   </tr>
                 `
+             } 
             }
             
           }
