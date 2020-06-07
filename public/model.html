@@ -80,7 +80,7 @@
             Un R0 menor a 1 sugiere que el número de casos se está reduciendo, lo cual podría permitir que ciertas sociedades reanuden sus actividades. Un R0 mayor a 1 indica que el número de casos está aumentando, lo cual tal vez requiera nuevos cierres de emergencia u otras medidas.
         </p>
 
-        <h4 class="section_subtitle" id="SIR">Modelo SIR</h4>
+        <h4 class="section_subtitle" id="SIR">Modelo SIR/<h4>
         
         <p class="section_paragraph indent">
             Este modelo parte de la premisa en la que los individuos en estudio se encuentran en uno de tres estados posibles. En base a ello, cada individuo se puede clasificar dentro de las categorías: Susceptibles (S), Infectados (I) y Removidos (R). Se asume que la interacción entre los individuos es aleatoria.
@@ -401,6 +401,200 @@
                 </div>
             </div>  
         </div>
+
+        <!-- 
+        <h4 class="section_subtitle" id="SIR">Modelo de Series Temporales</h4>
+
+        <p class="small_title">
+            Recta de mínimos cuadrados
+        </p>
+
+        <p class="section_paragraph">
+            La recta de aproximación por mínimos cuadrados del conjunto de puntos (X<sub>1</sub>, Y<sub>1</sub>), (X<sub>2</sub>, Y<sub>2</sub>)...(X<sub>N</sub>, Y<sub>N</sub>) tiene la ecuación:
+            <br><br>
+            Y = a<sub>0</sub> + a<sub>1</sub>X
+            <br><br>
+            Donde las constantes a<sub>0</sub> y a<sub>1</sub> se determinan mediante el sistema de ecuaciones
+            <br><br>  -->
+            <!-- Colocar sistema de ecuaciones 
+            <br><br>
+            que son las llamadas ecuaciones normales para la recta de mínimos cuadrados (1).
+            <br><br>
+            Las constantes a<sub>0</sub> y a<sub>1</sub> pueden sacarse de (2), obteniéndose las fórmulas
+            <br><br>-->
+            <!-- Colocar fórmulas 
+            <br><br>
+            Las ecuaciones normales (2) se recuerdan fácilmente, observando que la primera ecuación puede obtenerse formalmente sumando en ambos miembros de (1), es decir, ΣY = Σ(a<sub>0</sub> + a<sub>1</sub>X) = a<sub>0</sub>N + a<sub>1</sub> ΣX, mientras que la segunda ecuación se obtiene formalmente multiplicando primeramente los dos miembros de (1) por X y después sumando, es decir, ΣXY = ΣX(a<sub>0</sub> + a<sub>1</sub>X) = a<sub>0</sub> ΣX + a<sub>1</sub> ΣX <sub>1</sub>. Nótese que esto no es una derivación de las ecuaciones normales, sino sencillamente una forma de recordarlas.
+            <br><br>
+            Nótese también que en (2) y (3) se ha empleado la notación ΣX, ΣXY, etc., en lugar de 
+            <br><br>
+            sdfdfdfdf
+            <br><br>
+            El trabajo necesario para encontrar una recta de mínimos cuadrados puede a veces simplificarse transformando los datos, de forma que x = X - <span class="line">X</span> e y = Y - <span class="line">Y</span>. La ecuación de la recta de mínimos cuadrados puede escribirse
+            <br><br>
+            sfdkfjdkjdk
+            <br><br>
+            En particular, si X es tal que ΣX = 0, es decir, <span class="line">X</span> = 0, se convierte en
+            <br><br>
+            De estas ecuaciones se deduce inmediatamente que la recta de mínimos cuadrados pasa por el punto (<span class="line">X</span>, <span class="line">Y</span>) que es el centro de gravedad de los datos.
+            <br><br>
+            Si se toma como dependiente la variable X, en lugar de ser la independiente, se escribe (1) como X = b<sub>0</sub> + b<sub>1</sub> Y. Entonces, los resultados anteriores mantienen su valor si X e Y se intercambian y a<sub>0</sub> y a<sub>1</sub> se sustituyen por b<sub>0</sub> y b<sub>1</sub> respectivamente. Sin embargo, la recta de mínimos cuadrados resultante no es en general la misma que la obtenida anteriormente.
+        </p>
+
+        <p class="small_title">
+            Relaciones no lineales
+        </p>
+
+        <p class="section_paragraph">
+            Las relaciones no lineales pueden reducirse a veces a relaciones lineales mediante una adecuada transformación de las variables.
+        </p>
+
+        <p class="small_title">
+            Parábola de mínimos cuadrados
+        </p>
+
+        <p class="section_paragraph">
+            La parábola de aproximación de mínimos cuadrados a la serie de puntos (X<sub>1</sub>, Y<sub>1</sub>), (X<sub>2</sub>, Y<sub>2</sub>), ... (X<sub>N</sub>, Y<sub>N</sub>) tiene la ecuación
+            <br><br>
+            Y = a<sub>0</sub> + a<sub>1</sub>X + a<sub>2</sub>X<sup>2</sup>
+            <br><br>
+            Donde las constantes a<sub>0</sub>, a<sub>1</sub> y a<sub>2</sub> se determinan resolviendo el sistema de ecuaciones
+            <br><br>
+            dfdf
+            <br><br>
+            que son las ecuaciones normales para la parábola de mínimos cuadrados.
+            <br><br>
+            Las ecuaciones (5) se recuerdan fácilmente observando que se pueden obtener formalmente multiplicando la ecuación (4) por 1, X y X<sup>2</sup>, respectivamente, y sumando ambos miembros de las ecuaciones resultantes.
+
+            <br><br>
+
+            Como en el caso de la recta de mínimos cuadrados, las ecuaciones (5) se simplifican si X se elige de forma que ΣX = 0. También se obtiene simplificación eligiendo las nuevas variables x = X - <span class="line">X</span>, y = Y - <span class="line">Y</span>.
+        </p>
+
+        <p class="small_title">Regresión</p>
+
+        <p class="section_paragraph">
+            A veces, basándose en los datos muestrales, se desea estimar el valor de una variable Y correspondiente a un valor dado de una variable X. ESto puede conseguirse estimando el valor de Y de la curva de mínimos cuadrados que ajusta los datos muestrales. LA curva resultante se llama <i>curva de regresión</i> de Y sobre X, puesto que Y se estima a partir de X.
+            <br><br>
+            Si se desea estimar el valor de X a partir de uno dado de Y, se utiliza la <i>curva de regresión</i> de X sobre Y, que proviene de intercambiar las variables en el diagrama de dispersión de modo que X sea la variable dependiente e Y la variable independiente.
+            <br><br>
+            En general, la recta o curva de regresión de Y sobre X no es la misma que la recta o curva de regresión de X sobre Y.
+        </p>
+
+        <p class="small_title">
+            Aplicaciones a series de tiempo
+        </p>
+
+        <p class="section_paragraph">
+            Si la variable independiente X es el tiempo, los datos muestran los valores de Y en diferentes tiempos.  Los datos ordenados en relación al tiempo se denominan series de tiempo. La recta o curva de regresión de Y sobre X en este caso se llama frecuentemente recta de tendencia o curva de tendencia y se utiliza a menudo para fines de estimación, predicción o pronóstico.
+        </p>
+
+        <p class="small_title">
+            Problemas que abarcan más de dos variables
+        </p>
+
+        <p class="section_paragraph">
+            Los problemas que abarcan más de dos variables son tratados de la misma forma que los de dos variables. POr ejemplo, puede existir una relación entre las tres variables X, Y y Z que puede venir dada por la ecuación
+            <br><br>
+            Z = a<sub>0</sub> + a<sub>1</sub>X + a<sub>2</sub>Y
+            <br><br>
+            que se llama ecuación lineal entre las variables X, Y y Z.            
+        </p>
+
+        <p class="section_subtitle">
+            Análisis de series de tiempo
+        </p>
+
+        <p class="small_title">
+            Series de tiempo
+        </p>
+
+        <p class="section_paragraph">
+            Una serie de tiempo es un conjunto de observaciones hechas en momentos determinados, normalmente a intervalos iguales. Ejemplos de series de tiempo son la producción total anual de acero en Estados Unidos en un cierto número de años, el precio diario de cierre de una acción en la Bolsa, las temperaturas horarias anunciadas por el observatorio meteorológico de una ciudad y el total mensual de ventas habidas en un departamento de una tienda.
+            <br><br>
+            Matemáticamente, una serie de tiempo se define por los valores Y<sub>1</sub>, Y<sub>2</sub>,..., de una variable Y (temperatura, precio al cierre de una acción, etc.) en los momentos t<sub>1</sub>, t<sub>2</sub>... Así, Y es una función de t, simbolizada por Y = F(t).
+        </p>
+
+        <p class="small_title">
+            Representación de series de tiempo
+        </p>
+
+        <p class="section_paragraph">
+            Una serie de tiempo que abarca a la variable Y, se representa costruyendo un gráfico de Y y t. La representación de una serie de tiempo mostrando la población de ganado en EStados Unidos durante los años 1870-1960 se da en la siguiente figura:
+        </p>
+
+        <p class="small_title">
+            Movimientos característicos de las series de tiempo
+        </p>
+        
+        <p class="section_paragraph">
+            Es interesante considerar el gráfico de una serie de tiempo, como descrito por un punto que se mueve con el paso del tiempo, en muchos aspectos análogo al movimiento de una partícula bajo la influencia de fuerzas físicas. Sin embargo, en lugar de fuerzas físicas, el movimiento puede ser debido a la combinación de fuerzas económicas, sociológicas, psicológicas u otras.
+            <br><br>
+            La experiencia basada en muchos ejemplos de series de tiempo ha revelado ciertos movimientos o variaciones características, algunos o todos ellos se presentan en diferentes grados. El análisis de tales movimientos es de gran importancia en muchos casos, uno de gran interés es el problema de la previsión de movimientos futuros. No es, pues, de extreañar que muchas industrias y acciones gubernativas están vitalmente unidas con tan importante materia.
+        </p>
+
+        <p class="small_title">
+            Clasificación de movimientos de series de tiempo
+        </p>
+
+        <p class="section_paragraph">
+            Los movimientos característicos de una serie de tiempo pueden clasificarse en cuatro tiempos principales, llamados a menudo componentes de una serie de tiempo.
+            <br><br>
+            <b>1. Movimientos seculares o de larga duración</b> se refieren a la dirección general a la que el gráfico de una serie de tiempo parece dirigirse en un intervalo grande de tiempo. En el gráfico anterior, este movimiento secular o variación secular o tendencia secular como se llama a veces, se indica por una curva de tendencia, que aparece a trazos. En algunas series puede ser apropiada una recta de tendencia. 
+        </p>
+
+        <p class="section_paragraph">
+            <b>2. Movimientos cíclicos</b> o variaciones cíclicas se refieren a las oscilaciones de larga duración alrededor de la recta o curva de tendencia. EStos ciclos, como se llaman a veces, pueden ser o no periódicos, es decir, pueden seguir o no exactamente caminos análogos después de intervalos de tiempo iguales. En negocios y actividades económicas, los movimientos se consideran cíclicos solamente si su período tiene un intervalo de tiempo superior al año. Un ejemplo importante de movimientos cíclicos son los llamados asuntos cíclicos, que representan los intervalos de prosperidad, retroceso, depresión y recuperación.
+        </p>
+
+        <p class="section_paragraph">
+            <b>3. Movimientos estacionales</b> o variaciones estacionales se refieren a las idénticas, o casi idénticas, normas que una serie de tiempo parece seguir durante los correspondientes meses de los sucesivos años. Tales movimientos se deben a sucesos recurrentes que se repiten anualmente, como, por ejemplo, los repentinos incrementos de ventas de un departamento antes de las Navidades.
+            <br><br>
+            Aunque los movimientos estacionales se refieren en general a una periodicidad anual en negocios o teoría económica, las ideas envueltas pueden extenderse a incluir una periodicidad de cualquier intervalo de tiempo, tal como diaria, horaria, semana, etc., dependiendo del tipo de datos que utilizan.
+        </p>
+
+        <p class="section_paragraph">
+            <b>4. Movimientos irregulares o al azar</b> se refieren a movimientos esporádicos de las series de tiempo debidos a sucesos ocasionales, tales como inundaciones, huelgas, elecciones, etc. Aunque normalmente se supone que tales sucesos producen variaciones que solamente duran un corto intervalo de tiempo, se concibe que pueden ser tan intensos que originen un nuevo ciclo u otros movimientos.
+        </p>
+
+        <p class="small_title">
+            El análisis de series de tiempo
+        </p>
+
+        <p class="section_paragraph">
+            El análisis de series de tiempo consiste en una descripción (matemática generalmente) de los movimientos que la componen.
+            <br><br>
+            La figura (a) muestra el gráfico de una recta de tendencia secular o de larga duración (igualmente podría haber sido una curva de tendencia). La figura (b) muestra esta recta de tendencia de larga duración con un movimiento cíclico superpuesto (supuesto periódico). La figura (c) muestra un movimiento estacional superpuesto sobre el gráfico de la figura (b). Si se superpusiese sobre el gráfico (c) algún movimiento irregular o aleatorio, el resultado se asemejaría más a una serie de tiempo de las que en la práctica se presentan.
+        </p>
+
+        Aqui van los gráficos a b y c -->
+<!--  
+        <p class="section_paragraph">
+            Las ideas anteriores suministran una posible técnica para analizar las series de tiempo. Se supone que en las series de tiempo la variable Y es un producto de las variables T, C S e I que originan, respectivamente los movimientos de tendencia, cíclicos, estacionales e irregulares. En símbolos,
+            <br><br>
+            Y = T x C x S x I = TCSI
+            <br><br>
+            El análisis de las series de tiempo consiste en una investigación de los factores T, C, S e I y a menudo se refiere a una descomposición de una serie de teimpo en sus movimientos componentes básicos.
+            <br><br>
+            Debe indicarse que algunos estadísticos prefieren considerar Y como suma T + C + S + I de las variables básicas que lo componen. Aunque en los métodos expuestos se supone la descomposición de (1), procedimientos análogos son aplicables cuando se supone Y como suma de sus componentes. En la práctica, la decisión sobre qué método de descomposición debe suponerse, depende del grado de éxito conseguido al aplicar el supuesto.
+        </p>
+
+        <p class="small_title">
+            Movimientos medios, suavización de series de tiempo
+        </p>
+
+        <p class="section_paragraph">
+            Dado un conjunto de números
+            <br><br>
+            Y1, Y2, Y3,...
+            <br><br>
+            se define un movimiento medio de orden N al que viene dado por la sucesión de medias aritméticas,
+            <br><br>
+            sdsdasdasd
+            <br><br>
+            Las sumas de los numeradores de (3) se llaman movimientos totales de orden N.
+
+        </p>-->
 
         <div class="source">
 

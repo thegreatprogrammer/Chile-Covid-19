@@ -225,6 +225,11 @@ a:hover{
     color: #0045a7;
 }
 
+.line{
+    border-top: 1px solid black;
+    padding-top: 2px;
+}
+
 .grafico{
     background-color: #89baff;
     border-radius: 5px;
