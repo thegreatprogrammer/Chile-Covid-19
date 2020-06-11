@@ -48,6 +48,10 @@
                 <p class="section_autor">Prof. Augusto Rangel</p>
             </div>
 
+        <p class="section_paragraph indent">
+            La presente sección realiza una recopilación de los modelos matemáticos que pueden ser aplicados para representar el crecimiento de la pandemia, así como se presenta un <a href="#articulo">artículo</a> sobre la proyección de las cifras futuras a nivel estadístico.
+        </p>
+
         <h4 class="section_subtitle" id="basic">Conceptos básicos</h4>
 
         <p class="section_paragraph indent">
@@ -72,7 +76,7 @@
 
         <p class="small_title">Número reproductivo básico</p>
 
-        <p class="section_paragraph">
+        <p class="section_paragraph indent">
             Técnicamente pronunciada como “erre subcero”, esta representa el número de nuevas infecciones que se calcula que provienen de un solo caso. Dicho de otro modo, si el R0 de una enfermedad es de 2,5, entonces, se espera que una persona enferma infecte, en promedio, a 2,5 más.
         </p>
 
@@ -402,39 +406,78 @@
             </div>  
         </div>
 
-        <!-- 
-        <h4 class="section_subtitle" id="SIR">Modelo de Series Temporales</h4>
+        <h4 class="section_subtitle" id="articulo">Proyecciones netamente estadísticas del coronavirus (contagiados y fallecidos)</h4>
+
+        <div class="section_item">
+            <ul class="itemList">
+                <li>
+                    - Es importante destacar que la finalidad del presente artículo es informar sobre una manera de realizar la proyección de las cifras de contagiados y fallecidos del COVID-19 de forma estadística; esto significa, que las cifras expuestas no necesariamente deben ser exactas, pero sí cercanas a la realidad.
+                </li>
+                <li>
+                    - Se hace necesario además mencionar que las cifras dadas en los cuadros referentes al caso Chile pueden variar dependiendo de la llegada del peak de contagiados y fallecidos. Al llegar el peak, las cifras diarias disminuirán gradualmente (no así el acumulado, que seguirá incrementando), y por lo tanto, los datos expuestos en los cuadros al final de este artículo van a variar.
+                </li>
+                <li>
+                    - Se considera que el peak (punto de inflexión) ha llegado cuando pasan 5 a 6 días consecutivos donde las cifras diarias van disminuyendo, y no vuelven a aumentar durante los días posteriores.
+                </li>
+                <li>
+                    - En este artículo no se toman en cuenta los recuperados, esto debido a que el estado brindó información relativa a esta variable hasta determinada fecha, posteriormente no se dio más información al respecto.
+                </li>
+            </ul>
+        </div>
 
         <p class="small_title">
             Recta de mínimos cuadrados
         </p>
 
+        <!-- cuadro de contagiados y fallecidos -->
+
+        <!-- si llega el pick de fallecidos, punto de inflexión, las medias móviles cambiarán, y las cifras de fallecidos diarios bajarán, pero siguen sumándose -->
+
+        <!-- si llegan a 5 o 6 días consecutivos bajando las cifras diarias, se considera que se llegó al peak. Primero debería llegar los fallecidos al punto de inflexión que los contagiados -->
+
+        <!-- No se toman en cuenta los recuperados porque no se tienen cifras claras por parte del estado -->
+
+        <!-- Peak epidemiológico -->
+
+        <!-- medias móviles. Se colocan los tres cuadros de medias móviles. Dichas cifras van a llegar a un límite y comenzarán a bajar las medias -->
+
+        <!-- estos datos cambiarán cuando llegue el peak de contagiados y fallecidos (punto de inflexión) -->
+        <!-- cuadros de x y y ¿son los de la fórmula, es decir, donde está x, y, la sumatoria de xy y x al cuadrado -->
+
+
         <p class="section_paragraph">
             La recta de aproximación por mínimos cuadrados del conjunto de puntos (X<sub>1</sub>, Y<sub>1</sub>), (X<sub>2</sub>, Y<sub>2</sub>)...(X<sub>N</sub>, Y<sub>N</sub>) tiene la ecuación:
             <br><br>
-            Y = a<sub>0</sub> + a<sub>1</sub>X
+            <p style="display: inline">1.  </p><img src="../assets/formula/1.png"/>  
             <br><br>
             Donde las constantes a<sub>0</sub> y a<sub>1</sub> se determinan mediante el sistema de ecuaciones
-            <br><br>  -->
-            <!-- Colocar sistema de ecuaciones 
+            <br><br> 
+            <p style="display: inline">2.  </p><img src="../assets/formula/2.png"/>  
             <br><br>
             que son las llamadas ecuaciones normales para la recta de mínimos cuadrados (1).
             <br><br>
-            Las constantes a<sub>0</sub> y a<sub>1</sub> pueden sacarse de (2), obteniéndose las fórmulas
-            <br><br>-->
-            <!-- Colocar fórmulas 
+            Las constantes a<sub>0</sub> y a<sub>1</sub> pueden sacarse de (2), obteniéndose las fórmulas:
+            <br><br>
+            <p style="display: inline">3.  </p>
+            <img src="../assets/formula/3.png"/>  
+            <br><br>
+            <img src="../assets/formula/4.png"/>  
             <br><br>
             Las ecuaciones normales (2) se recuerdan fácilmente, observando que la primera ecuación puede obtenerse formalmente sumando en ambos miembros de (1), es decir, ΣY = Σ(a<sub>0</sub> + a<sub>1</sub>X) = a<sub>0</sub>N + a<sub>1</sub> ΣX, mientras que la segunda ecuación se obtiene formalmente multiplicando primeramente los dos miembros de (1) por X y después sumando, es decir, ΣXY = ΣX(a<sub>0</sub> + a<sub>1</sub>X) = a<sub>0</sub> ΣX + a<sub>1</sub> ΣX <sub>1</sub>. Nótese que esto no es una derivación de las ecuaciones normales, sino sencillamente una forma de recordarlas.
             <br><br>
             Nótese también que en (2) y (3) se ha empleado la notación ΣX, ΣXY, etc., en lugar de 
             <br><br>
-            sdfdfdfdf
+            <img src="../assets/formula/5.png"/>  
             <br><br>
             El trabajo necesario para encontrar una recta de mínimos cuadrados puede a veces simplificarse transformando los datos, de forma que x = X - <span class="line">X</span> e y = Y - <span class="line">Y</span>. La ecuación de la recta de mínimos cuadrados puede escribirse
             <br><br>
-            sfdkfjdkjdk
+            <p style="display: inline">4.  </p>
+            <img src="../assets/formula/6.png"/>  
             <br><br>
             En particular, si X es tal que ΣX = 0, es decir, <span class="line">X</span> = 0, se convierte en
+            <br><br>
+            <p style="display: inline">5.  </p>
+            <img src="../assets/formula/7.png"/>  
             <br><br>
             De estas ecuaciones se deduce inmediatamente que la recta de mínimos cuadrados pasa por el punto (<span class="line">X</span>, <span class="line">Y</span>) que es el centro de gravedad de los datos.
             <br><br>
@@ -456,25 +499,27 @@
         <p class="section_paragraph">
             La parábola de aproximación de mínimos cuadrados a la serie de puntos (X<sub>1</sub>, Y<sub>1</sub>), (X<sub>2</sub>, Y<sub>2</sub>), ... (X<sub>N</sub>, Y<sub>N</sub>) tiene la ecuación
             <br><br>
-            Y = a<sub>0</sub> + a<sub>1</sub>X + a<sub>2</sub>X<sup>2</sup>
+            <p style="display: inline">6.  </p>
+            <img src="../assets/formula/8.png"/>  
             <br><br>
             Donde las constantes a<sub>0</sub>, a<sub>1</sub> y a<sub>2</sub> se determinan resolviendo el sistema de ecuaciones
             <br><br>
-            dfdf
+            <p style="display: inline">7.  </p>
+            <img src="../assets/formula/9.png"/>  
             <br><br>
             que son las ecuaciones normales para la parábola de mínimos cuadrados.
             <br><br>
-            Las ecuaciones (5) se recuerdan fácilmente observando que se pueden obtener formalmente multiplicando la ecuación (4) por 1, X y X<sup>2</sup>, respectivamente, y sumando ambos miembros de las ecuaciones resultantes.
+            Las ecuaciones (6) se recuerdan fácilmente observando que se pueden obtener formalmente multiplicando la ecuación (5) por 1, X y X<sup>2</sup>, respectivamente, y sumando ambos miembros de las ecuaciones resultantes.
 
             <br><br>
 
-            Como en el caso de la recta de mínimos cuadrados, las ecuaciones (5) se simplifican si X se elige de forma que ΣX = 0. También se obtiene simplificación eligiendo las nuevas variables x = X - <span class="line">X</span>, y = Y - <span class="line">Y</span>.
+            Como en el caso de la recta de mínimos cuadrados, las ecuaciones (6) se simplifican si X se elige de forma que ΣX = 0. También se obtiene simplificación eligiendo las nuevas variables x = X - <span class="line">X</span>, y = Y - <span class="line">Y</span>.
         </p>
 
         <p class="small_title">Regresión</p>
 
         <p class="section_paragraph">
-            A veces, basándose en los datos muestrales, se desea estimar el valor de una variable Y correspondiente a un valor dado de una variable X. ESto puede conseguirse estimando el valor de Y de la curva de mínimos cuadrados que ajusta los datos muestrales. LA curva resultante se llama <i>curva de regresión</i> de Y sobre X, puesto que Y se estima a partir de X.
+            A veces, basándose en los datos muestrales, se desea estimar el valor de una variable Y correspondiente a un valor dado de una variable X. ESto puede conseguirse estimando el valor de Y de la curva de mínimos cuadrados que ajusta los datos muestrales. La curva resultante se llama <i>curva de regresión</i> de Y sobre X, puesto que Y se estima a partir de X.
             <br><br>
             Si se desea estimar el valor de X a partir de uno dado de Y, se utiliza la <i>curva de regresión</i> de X sobre Y, que proviene de intercambiar las variables en el diagrama de dispersión de modo que X sea la variable dependiente e Y la variable independiente.
             <br><br>
@@ -496,7 +541,8 @@
         <p class="section_paragraph">
             Los problemas que abarcan más de dos variables son tratados de la misma forma que los de dos variables. POr ejemplo, puede existir una relación entre las tres variables X, Y y Z que puede venir dada por la ecuación
             <br><br>
-            Z = a<sub>0</sub> + a<sub>1</sub>X + a<sub>2</sub>Y
+            <p style="display: inline">8.  </p>
+            <img src="../assets/formula/10.png"/>  
             <br><br>
             que se llama ecuación lineal entre las variables X, Y y Z.            
         </p>
@@ -520,8 +566,10 @@
         </p>
 
         <p class="section_paragraph">
-            Una serie de tiempo que abarca a la variable Y, se representa costruyendo un gráfico de Y y t. La representación de una serie de tiempo mostrando la población de ganado en EStados Unidos durante los años 1870-1960 se da en la siguiente figura:
+            Una serie de tiempo que abarca a la variable Y, se representa costruyendo un gráfico de Y y t. La representación de una serie de tiempo mostrando la población de ganado en Estados Unidos durante los años 1870-1960 se da en la siguiente figura:
         </p>
+
+        <img src="../assets/1.png"/>
 
         <p class="small_title">
             Movimientos característicos de las series de tiempo
@@ -544,7 +592,7 @@
         </p>
 
         <p class="section_paragraph">
-            <b>2. Movimientos cíclicos</b> o variaciones cíclicas se refieren a las oscilaciones de larga duración alrededor de la recta o curva de tendencia. EStos ciclos, como se llaman a veces, pueden ser o no periódicos, es decir, pueden seguir o no exactamente caminos análogos después de intervalos de tiempo iguales. En negocios y actividades económicas, los movimientos se consideran cíclicos solamente si su período tiene un intervalo de tiempo superior al año. Un ejemplo importante de movimientos cíclicos son los llamados asuntos cíclicos, que representan los intervalos de prosperidad, retroceso, depresión y recuperación.
+            <b>2. Movimientos cíclicos</b> o variaciones cíclicas se refieren a las oscilaciones de larga duración alrededor de la recta o curva de tendencia. Estos ciclos, como se llaman a veces, pueden ser o no periódicos, es decir, pueden seguir o no exactamente caminos análogos después de intervalos de tiempo iguales. En negocios y actividades económicas, los movimientos se consideran cíclicos solamente si su período tiene un intervalo de tiempo superior al año. Un ejemplo importante de movimientos cíclicos son los llamados asuntos cíclicos, que representan los intervalos de prosperidad, retroceso, depresión y recuperación.
         </p>
 
         <p class="section_paragraph">
@@ -567,8 +615,8 @@
             La figura (a) muestra el gráfico de una recta de tendencia secular o de larga duración (igualmente podría haber sido una curva de tendencia). La figura (b) muestra esta recta de tendencia de larga duración con un movimiento cíclico superpuesto (supuesto periódico). La figura (c) muestra un movimiento estacional superpuesto sobre el gráfico de la figura (b). Si se superpusiese sobre el gráfico (c) algún movimiento irregular o aleatorio, el resultado se asemejaría más a una serie de tiempo de las que en la práctica se presentan.
         </p>
 
-        Aqui van los gráficos a b y c -->
-<!--  
+       <img src="../assets/2.png" alt="">
+ 
         <p class="section_paragraph">
             Las ideas anteriores suministran una posible técnica para analizar las series de tiempo. Se supone que en las series de tiempo la variable Y es un producto de las variables T, C S e I que originan, respectivamente los movimientos de tendencia, cíclicos, estacionales e irregulares. En símbolos,
             <br><br>
@@ -578,6 +626,8 @@
             <br><br>
             Debe indicarse que algunos estadísticos prefieren considerar Y como suma T + C + S + I de las variables básicas que lo componen. Aunque en los métodos expuestos se supone la descomposición de (1), procedimientos análogos son aplicables cuando se supone Y como suma de sus componentes. En la práctica, la decisión sobre qué método de descomposición debe suponerse, depende del grado de éxito conseguido al aplicar el supuesto.
         </p>
+
+        <!-- Cálculos matemáticos - estadísticos. Cuando llegue el pick los cuadros pierden el valor. Información netamente matemática -->
 
         <p class="small_title">
             Movimientos medios, suavización de series de tiempo
@@ -590,11 +640,50 @@
             <br><br>
             se define un movimiento medio de orden N al que viene dado por la sucesión de medias aritméticas,
             <br><br>
-            sdsdasdasd
+            <p style="display: inline">9.  </p>
+            <img src="../assets/formula/11.png"/>  
             <br><br>
-            Las sumas de los numeradores de (3) se llaman movimientos totales de orden N.
+            Las sumas de los numeradores de (9) se llaman movimientos totales de orden N.
 
-        </p>-->
+        </p>
+
+        <p class="section_paragraph">
+            <b>Ejemplo 1:</b> Dados los números 2,6,1,5,3,7,2 un movimiento medio de orden 3 está dado por la sucesión
+            <br><br>
+            <img src="../assets/formula/12.png"/>  
+            <br><br>
+            es decir, 3,4,3,5,4.
+            <br><br>
+            Se acostumbra a situar cada número del movimiento medio en su posición relativa apropiada con respecto a los datos originales. En este ejemplo se escribiría:
+            <br><br>
+            Datos originales: 2,6,1,5,3,7,2.
+            <br>
+            Movimiento medio de orden 3: 3,4,3,5,4.
+            <br>
+            Cada número del movimiento medio es la media de los 3 números inmediatos por encima de él.
+            <br><br>
+            Si los datos son dados anual o mensualmente, se llama movimiento medio de orden N a un movimienyo medio de N años o un movimiento medio de N meses, respectivamente. Así, se habla de movimientos medios de 5 años, movimientos medios de 12 meses, etc. Naturalmente que cualquier otra unidad de tiempo puede igualmente utilizarse.
+        </p>
+
+        <p class="small_title">Aplicación al caso Chile (PROYECCIONES)</p>
+
+        <p class="section_paragraph indent">
+            Se muestran los modelos de regresión de series temporales y el método de medias móviles para la proyección de la pandemia en el caso Chile. A causa de la variación en los criterios por parte del estado para determinar las cifras de contagiados y fallecidos, se trabaja en la proyección de los fallecidos a través del método de medias móviles.
+        </p>
+
+        <p class="small_title">Modelo de regresión de series temporales en el caso Chile (contagiados y fallecidos)</p>
+        
+        <iframe width="600" height="700" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=CEB2788E9B013158%21133&authkey=%21AK_iZe9bQVagUIw&em=2&wdAllowInteractivity=False&ActiveCell='Y%20POSITIVO'!A1&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+
+        <iframe width="600" height="700" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=CEB2788E9B013158%21136&authkey=%21AEma00tWwK_sx-g&em=2&wdAllowInteractivity=False&ActiveCell='Principal'!A1&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+
+        <p class="small_title">Aplicación de las medias móviles en el caso Chile (FALLECIDOS)</p>
+
+        <iframe width="600" height="700" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=CEB2788E9B013158%21134&authkey=%21AIUj6EwEO0sa708&em=2&wdAllowInteractivity=False&ActiveCell='3'!A1&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+
+        <p class="small_title">Baja de medias móviles (FALLECIDOS)</p>
+
+        <iframe width="600" height="700" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=CEB2788E9B013158%21135&authkey=%21ANhorBro-iZLTDs&em=2&wdAllowInteractivity=False&ActiveCell='3'!A1&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
 
         <div class="source">
 
