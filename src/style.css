@@ -225,6 +225,10 @@ a:hover{
     color: #0045a7;
 }
 
+.formul{
+    width: 80%;
+}
+
 .line{
     border-top: 1px solid black;
     padding-top: 2px;
