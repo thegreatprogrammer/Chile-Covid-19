@@ -238,6 +238,7 @@ a:hover{
     display: block;
     margin: 1em;
     padding: 1em;
+    width: 80vh;
 }
 
 .buttonSquare:hover{
@@ -364,6 +365,15 @@ a:hover{
     }
 
   }
+
+@media (max-width: 850px) {
+
+    .buttonSquare{
+        width: 80%;
+    }
+
+}
+
 
 @media (max-width: 990px) {
 
