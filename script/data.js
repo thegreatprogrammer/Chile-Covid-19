@@ -194,7 +194,7 @@ export class DATA {
 
       // Recuperados 
 
-      let recuperados = document.getElementById('recuperados');
+      /*let recuperados = document.getElementById('recuperados');
 
       for(let i = 0; i <= recovered.length; i++){
 
@@ -256,7 +256,7 @@ export class DATA {
             `
             }
         }
-      }
+      }*/
 
       // Fallecidos 
 
