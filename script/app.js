@@ -30,7 +30,7 @@ export class APP {
     
     document.addEventListener('DOMContentLoaded', e =>{
         canvas.setGraphs('contagiados');
-        canvas.setGraphs('recuperados');
+       // canvas.setGraphs('recuperados');
         canvas.setGraphs('fallecidos');
     });
 
