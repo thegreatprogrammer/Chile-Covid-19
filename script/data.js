@@ -91,7 +91,7 @@ export class DATA {
           }
         }
 
-        let arr3 = [], arr4 = [], arr5 = [], arr6 = [];
+        let arr3 = [], arr4 = [], arr5 = [], arr6 = [], arr7 = [];
 
         for(let i = 1; i<31; i++){
           for(let j = 0; j< arr.length; j++){
@@ -118,11 +118,15 @@ export class DATA {
            case '6':
             arr6.push(newArray[j]);
             break;
+            
+            case '7':
+            arr7.push(newArray[j]);
+            break;
           }
         }
 
         let array = [];
-        array = array.concat(arr3, arr4, arr5, arr6);
+        array = array.concat(arr3, arr4, arr5, arr6, arr7);
                   
         return array
 
