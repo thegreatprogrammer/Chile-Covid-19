@@ -124,7 +124,7 @@ export class DATA {
             break;
             
             case '8':
-            arr7.push(newArray[j]);
+            arr8.push(newArray[j]);
             break;
           }
         }
