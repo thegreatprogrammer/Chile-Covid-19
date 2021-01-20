@@ -6,55 +6,132 @@ export class DATA {
     this.daily;
   }
 
-  getDailyData(fecha) {
-    let newData = this.obtenerDatos().then(data => {
-      let confirmedData = data.response.confirmed.locations[48].history;
-      let recoveredData = data.response.recovered.locations[39].history;
-      let deathsData = data.response.deaths.locations[48].history;
+  // Obtener data diaria, recibe la fecha dada por el usuario como parámetro
+  async getDailyData(fecha) {
 
+    // https://covid-api.mmediagroup.fr/v1/history?country=Chile&status=confirmed
+
+    // Un método por cada categoría: Contagiados, recuperados, fallecidos.
+
+    let fechaReady, confirmed, deaths, recovered;
+
+    fechaReady = moment(fecha).format("YYYY-MM-DD");
+
+    let dataContagiados =  await this.obtenerContagiados().then(data => {
+
+      let confirmedData = data.response.All.dates;
+
+      // Se recorren todas las fechas   
+      // key y value corresponden a: fecha y valor de contagiados
       for (const [key, value] of Object.entries(confirmedData)) {
-        let compare = moment(key).format("D/M/YY");
-        if (compare == fecha) {
-          confirmedData = value;
+
+        // se almacena la fecha correspondiente a cada iteración y se formatea
+        // formateando la fecha de YY/M/D a YY-M-D
+        let compare = moment(key).format("YYYY-MM-DD");
+
+        // si la fecha de la iteración actual coincide con la fecha dada por el usuario, hace match
+        if (compare == fechaReady) {
+          confirmed = value;
         }
       }
-
-      for (const [key, value] of Object.entries(recoveredData)) {
-        let compare = moment(key).format("D/M/YY");
-        if (compare == fecha) {
-          recoveredData = value;
-        }
-      }
-
-      for (const [key, value] of Object.entries(deathsData)) {
-        let compare = moment(key).format("D/M/YY");
-        if (compare == fecha) {
-          deathsData = value;
-        }
-      }
-
-      ui.fillMainData(fecha, confirmedData, deathsData, recoveredData);
     });
+
+    let dataFallecidos = await this.obtenerFallecidos().then(data => {
+
+      let deathsData = data.response.All.dates;
+
+      // Se recorren todas las fechas   
+      // key y value corresponden a: fecha y valor de contagiados
+      for (const [key, value] of Object.entries(deathsData)) {
+
+        // se almacena la fecha correspondiente a cada iteración y se formatea
+        // formateando la fecha de YY/M/D a YY-M-D
+        let compare = moment(key).format("YYYY-MM-DD");
+
+        // si la fecha de la iteración actual coincide con la fecha dada por el usuario, hace match
+        if (compare == fechaReady) {
+          deaths = value;
+        }
+      }
+    });
+
+    let dataRecuperados = await this.obtenerRecuperados().then(data => {
+
+      let recoveredData = data.response.All.dates;
+
+      // Se recorren todas las fechas   
+      // key y value corresponden a: fecha y valor de contagiados
+      for (const [key, value] of Object.entries(recoveredData)) {
+
+        // se almacena la fecha correspondiente a cada iteración y se formatea
+        // formateando la fecha de YY/M/D a YY-M-D
+        let compare = moment(key).format("YYYY-MM-DD");
+
+        // si la fecha de la iteración actual coincide con la fecha dada por el usuario, hace match
+        if (compare == fechaReady) {
+          recovered = value;
+
+          // Despliega los valores en interfaz
+          ui.fillMainData(moment(fecha).format("DD/MM/YYYY"), confirmed, deaths, recovered);
+        }
+      }
+    });
+
+      
   }
 
-  async obtenerDiario() {
-    const url = await fetch(
-      "https://covid19-server.chrismichael.now.sh/api/v1/ReportsByCountries/chile"
-    );
+  // async obtenerDiario() {
+  //   const url = await fetch(
+  //     "https://covid19-server.chrismichael.now.sh/api/v1/ReportsByCountries/chile"
+  //   );
 
-    let response = await url.json();
+  //   let response = await url.json();
 
-    this.daily = response;
+  //   this.daily = response;
+
+  //   return {
+  //     response
+  //   };
+  // }
+
+  async obtenerDatos() {
+
+    const url = await fetch(`https://covid-api.mmediagroup.fr/v1/cases?country=Chile`);
+
+    const response = await url.json();
 
     return {
       response
     };
   }
 
-  async obtenerDatos() {
-    const url = await fetch(`https://covid19api.herokuapp.com`);
+  async obtenerContagiados() {
 
-    let response = await url.json();
+    const url = await fetch(`https://covid-api.mmediagroup.fr/v1/history?country=Chile&status=confirmed`);
+
+    const response = await url.json();
+
+    return {
+      response
+    };
+  }
+
+  async obtenerFallecidos() {
+
+    const url = await fetch(`https://covid-api.mmediagroup.fr/v1/history?country=Chile&status=deaths`);
+
+    const response = await url.json();
+
+    return {
+      response
+    };
+  }
+
+  async obtenerRecuperados() {
+
+    const url = await fetch(`https://covid-api.mmediagroup.fr/v1/history?country=Chile&status=recovered`);
+
+    const response = await url.json();
 
     return {
       response
@@ -63,117 +140,62 @@ export class DATA {
 
   provideArray(proyeccion){
 
-    let newData = this.obtenerDatos().then(data => {
+    // se debe llamar a cada metodo según categoría
 
-      let confirmedData = data.response.confirmed.locations[48].history;
-      let recoveredData = data.response.recovered.locations[39].history;
-      let deathsData = data.response.deaths.locations[48].history;
+    // empezar desde 1 de marzo
+    // se debe poner comenzando en 2020 (reversar las fechas)
+    // calcular bien la cantidad por día
+    // para el segundo re brote colorear las celdas de un color distinto (rojo)
+    // colocar gráficos actualizados
 
-      // Lógica para obtener el array ordenado de las fechas y cantidades 
-      
-      const orderArray = (info) =>{
-        
-        let newFecha, newArray = [], arr = [];
+    let dataContagiados = this.obtenerContagiados().then(data => {
 
-        for (const [key, value] of Object.entries(info)) {
+      let confirmedData = data.response.All.dates;
+      let tempData = [];
+      let fechaTemp;
+
+      for (const [key, value] of Object.entries(confirmedData)) {
           
-          if (value !== 0) {
+        if (value !== 0) {
 
-            let aux;
-            newFecha = key.split('/');
+          fechaTemp = moment(key).format("D/MM/YYYY");
+          let date = {'fecha': fechaTemp, 'valor': value};
+          tempData.push(date)
 
-            aux = newFecha[0];
-            newFecha[0] = newFecha[1];
-            newFecha[1] = aux;
-
-            let array = [newFecha, value];
-            arr.push(array);
-          }
         }
+      }
 
-        let arr3 = [], arr4 = [], arr5 = [], arr6 = [], arr7 = [], arr8 = [];
+      // reversando el array
+      tempData.reverse();
 
-        for(let i = 1; i<31; i++){
-          for(let j = 0; j< arr.length; j++){
-            if(arr[j][0][0] == i){
-                  newArray.push(arr[j]);
-              }
-          }
-        }
+      for(let i = 0; i <= tempData.length; i++){
 
-      for(let j = 0; j< newArray.length; j++){
-        switch(newArray[j][0][1]){
-          case '3':
-            arr3.push(newArray[j]);
-            break;
+        let factor = 1, dato;
 
-          case '4':
-            arr4.push(newArray[j]);
-            break;
-              
-          case '5':
-            arr5.push(newArray[j]);
-            break;
-            
-           case '6':
-            arr6.push(newArray[j]);
-            break;
-            
-            case '7':
-            arr7.push(newArray[j]);
-            break;
-            
-            case '8':
-            arr8.push(newArray[j]);
-            break;
-          }
-        }
-
-        let array = [];
-        array = array.concat(arr3, arr4, arr5, arr6, arr7, arr8);
-                  
-        return array
-
-      };
-
-      let confirmed = orderArray(confirmedData);
-      let recovered = orderArray(recoveredData);
-      let deaths = orderArray(deathsData);
-
-      // Confirmados 
-
-      for(let i = 0; i <= confirmed.length; i++){
-
-        let factor, dato;
-
+        // Insertando filas de la tabla
         if(i === 0){
-
-          dato = confirmed[i][0].join('/');
-          factor = 0;
 
           proyeccion.innerHTML += 
           `
           <tr>
-            <th scope="row">${dato}</th>
-            <td>${confirmed[i][1]}</td>
+            <th scope="row">${tempData[0].fecha}</th>
+            <td>${tempData[0].valor}</td>
             <td>${factor}</td>
-            <td>${confirmed[i][1]}</td>
+            <td>${tempData[0].valor}</td>
           </tr>
         `
         }else {
         
-          if(i === confirmed.length){
+          if(i === tempData.length){
 
-            dato = confirmed[i-1][0].join('/');
+            factor = ((Number(document.getElementById('confirm1').innerText)/(tempData[i-1].valor))).toFixed(3);
 
-            factor = ((Number(document.getElementById('confirm1').innerText)/(confirmed[i-1][1]))).toFixed(3);
-
-            if(factor !== 1.000 && Number(document.getElementById('confirm1').innerText) - confirmed[i-1][1] !== 0){
+            if(factor !== 1.000 && Number(document.getElementById('confirm1').innerText) - tempData[i-1].valor !== 0){
                 proyeccion.innerHTML += 
                 `
                   <tr>
-                    <th scope="row">${moment().format('D/M/YY')}</th>
-                    <td>${Number(document.getElementById('confirm1').innerText) - confirmed[i-1][1]}</td>
+                    <th scope="row">${moment().format('D/M/YYYY')}</th>
+                    <td>${Number(document.getElementById('confirm1').innerText) - tempData[i-1].valor}</td>
                     <td>${factor}</td>
                     <td>${Number(document.getElementById('confirm1').innerText)}</td>
                   </tr>
@@ -184,240 +206,389 @@ export class DATA {
 
           else{
 
-            dato = confirmed[i][0].join('/');
+            dato = tempData[i].fecha;
 
-            factor = ((confirmed[i][1]/(confirmed[i-1][1]))).toFixed(3);
+            factor = ((tempData[i].valor/tempData[i-1].valor)).toFixed(3);
             
             proyeccion.innerHTML += `
               <tr>
                 <th scope="row">${dato}</th>
-                <td>${confirmed[i][1] - confirmed[i-1][1]}</td>
+                <td>${tempData[i].valor - tempData[i-1].valor}</td>
                 <td>${factor}</td>
-                <td>${confirmed[i][1]}</td>
+                <td>${tempData[i].valor}</td>
               </tr>
             `
             }
         }
       }
+    });
 
-      // Recuperados 
+    let dataRecuperados = this.obtenerRecuperados().then(data => {
 
-      let recuperados = document.getElementById('recuperados');
+      let recoveredData = data.response.All.dates;
+      let tempData = [];
+      let fechaTemp;
 
-      for(let i = 0; i <= recovered.length; i++){
+      for (const [key, value] of Object.entries(recoveredData)) {
+          
+        if (value !== 0) {
 
-        let factor, dato;
+          fechaTemp = moment(key).format("D/MM/YYYY");
+          let date = {'fecha': fechaTemp, 'valor': value};
+          tempData.push(date)
 
+        }
+      }
+
+      // reversando el array
+      tempData.reverse();
+
+      for(let i = 0; i <= tempData.length; i++){
+
+        let factor = 1, dato;
+
+        // Insertando filas de la tabla
         if(i === 0){
 
-          dato = recovered[i][0].join('/');
-          factor = 0;
-
-          recuperados.innerHTML += 
+          document.getElementById('recuperados').innerHTML += 
           `
           <tr>
-            <th scope="row">${dato}</th>
-            <td>${recovered[i][1]}</td>
+            <th scope="row">${tempData[0].fecha}</th>
+            <td>${tempData[0].valor}</td>
             <td>${factor}</td>
-            <td>${recovered[i][1]}</td>
+            <td>${tempData[0].valor}</td>
           </tr>
         `
-        } else {
+        }else {
         
-          if(i === recovered.length){
+          if(i === tempData.length){
 
-            dato = recovered[i-1][0].join('/');
+            factor = ((Number(document.getElementById('recover1').innerText)/(tempData[i-1].valor))).toFixed(3);
 
-            factor = ((Number(document.getElementById('recover1').innerText)/(recovered[i-1][1]))).toFixed(3);
-
-            if(factor !== 1.000 && Number(document.getElementById('recover1').innerText) - recovered[i-1][1] !== 0){
-                
-             if(Number(document.getElementById('recover1').innerText) - recovered[i-1][1] > 0){
-       
-              recuperados.innerHTML += 
+            if(factor !== 1.000 && Number(document.getElementById('recover1').innerText) - tempData[i-1].valor !== 0){
+              document.getElementById('recuperados').innerHTML += 
                 `
                   <tr>
-                    <th scope="row">${moment().format('D/M/YY')}</th>
-                    <td>${Number(document.getElementById('recover1').innerText) - recovered[i-1][1]}</td>
+                    <th scope="row">${moment().format('D/M/YYYY')}</th>
+                    <td>${Number(document.getElementById('recover1').innerText) - tempData[i-1].valor}</td>
                     <td>${factor}</td>
                     <td>${Number(document.getElementById('recover1').innerText)}</td>
                   </tr>
                 `
-             } 
             }
-            
+
           }
 
           else{
 
-            dato = recovered[i][0].join('/');
+            dato = tempData[i].fecha;
 
-            factor = ((recovered[i][1]/(recovered[i-1][1]))).toFixed(3);
+            factor = ((tempData[i].valor/tempData[i-1].valor)).toFixed(3);
             
-            recuperados.innerHTML += `
+            document.getElementById('recuperados').innerHTML += `
               <tr>
                 <th scope="row">${dato}</th>
-                <td>${recovered[i][1] - recovered[i-1][1]}</td>
+                <td>${tempData[i].valor - tempData[i-1].valor}</td>
                 <td>${factor}</td>
-                <td>${recovered[i][1]}</td>
+                <td>${tempData[i].valor}</td>
               </tr>
             `
             }
         }
       }
+    });
 
-      // Fallecidos 
+    let dataFallecidos = this.obtenerFallecidos().then(data => {
 
-      let fallecidos = document.getElementById('fallecidos');
-
-      for(let i = 0; i <= deaths.length; i++){
-
-        let factor, dato;
-
-        if(i === 0){
-
-          dato = deaths[i][0].join('/');
-          factor = 0;
-
-          fallecidos.innerHTML += 
-          `
-          <tr>
-            <th scope="row">${dato}</th>
-            <td>${deaths[i][1]}</td>
-            <td>${factor}</td>
-            <td>${deaths[i][1]}</td>
-          </tr>
-        `
-        } 
-        
-        else {
-        
-          if(i === deaths.length){
-
-            dato = deaths[i-1][0].join('/');
-
-            factor = ((Number(document.getElementById('death1').innerText)/(deaths[i-1][1]))).toFixed(3);
-            
-
-            if(factor !== 1.000 && Number(document.getElementById('death1').innerText) - deaths[i-1][1] !== 0){
-                fallecidos.innerHTML += 
-                `
-                  <tr>
-                    <th scope="row">${moment().format('D/M/YY')}</th>
-                    <td>${Number(document.getElementById('death1').innerText) - deaths[i-1][1]}</td>
-                    <td>${factor}</td>
-                    <td>${Number(document.getElementById('death1').innerText)}</td>
-                  </tr>
-                `
-            }
-
-          }
-
-          else{
-
-            dato = deaths[i][0].join('/');
-
-            factor = ((deaths[i][1]/(deaths[i-1][1]))).toFixed(3);
-            
-            fallecidos.innerHTML += `
-              <tr>
-                <th scope="row">${dato}</th>
-                <td>${deaths[i][1] - deaths[i-1][1]}</td>
-                <td>${factor}</td>
-                <td>${deaths[i][1]}</td>
-              </tr>
-            `
-          }
-        }
-      }
-
-      // SIR
-
-      let sir = document.getElementById('SIR');
-      let newConfirmed = [];
-
-    /*  const newFilter = () => {
-
-        let fecha2 = new Date('2020-04-14').toLocaleDateString();
-
-        for(let i = 0; i<confirmed.length; i++){
-
-          let fecha1 = new Date(confirmed[i][0].join('/')).toLocaleDateString();
-
-          if(fecha1 >= fecha2){
-            newConfirmed.push(confirmed[i][0]);
-          }
-        }
-      };
-
-      newFilter();*/
-
-     /* const newFilter = confirmed.filter( confirm => new Date(confirm[0].join('/')).toLocaleDateString() > new Date('2020-04-14').toLocaleDateString());
-
-      console.log(newFilter); 
-      /*for(let i = 0; i <= deaths.length; i++){
-
-        let factor, dato;
-
-        if(i === 0){
-
-          dato = deaths[i][0].join('/');
-          factor = 0;
-
-          fallecidos.innerHTML += 
-          `
-          <tr>
-            <th scope="row">${dato}</th>
-            <td>${deaths[i][1]}</td>
-            <td>${factor}</td>
-            <td>${deaths[i][1]}</td>
-          </tr>
-        `
-        } 
-        
-        else {
-        
-          if(i === deaths.length){
-
-            dato = deaths[i-1][0].join('/');
-            let newFecha = moment().format('D/M/YY');
-
-            if(dato === newFecha){
-              factor = 0;
-              dato = moment().format('D/M/YY');
-              fallecidos.innerHTML += 
-              `
-                <tr>
-                  <th scope="row">${dato}</th>
-                  <td>${Number(document.getElementById('death1').innerText) - deaths[i-1][1]}</td>
-                  <td>${factor}</td>
-                  <td>${document.getElementById('death1').innerText}</td>
-                </tr>
-              `
-            }
-
-          }
-
-          else{
-
-            dato = deaths[i][0].join('/');
-
-            factor = ((deaths[i][1]/(deaths[i-1][1]))).toFixed(3);
-            
-            fallecidos.innerHTML += `
-              <tr>
-                <th scope="row">${dato}</th>
-                <td>${deaths[i][1] - deaths[i-1][1]}</td>
-                <td>${factor}</td>
-                <td>${deaths[i][1]}</td>
-              </tr>
-            `
-          }
-        }
-      }*/
       
-      }
-    )
+
+    });
+
+    // let newData = this.obtenerDatos().then(data => {
+
+    //   let confirmedData = data.response.confirmed.locations[48].history;
+    //   let recoveredData = data.response.recovered.locations[39].history;
+    //   let deathsData = data.response.deaths.locations[48].history;
+
+
+    //   // Confirmados 
+
+    //   for(let i = 0; i <= confirmed.length; i++){
+
+    //     let factor, dato;
+
+    //     if(i === 0){
+
+    //       dato = confirmed[i][0].join('/');
+    //       factor = 0;
+
+    //       proyeccion.innerHTML += 
+    //       `
+    //       <tr>
+    //         <th scope="row">${dato}</th>
+    //         <td>${confirmed[i][1]}</td>
+    //         <td>${factor}</td>
+    //         <td>${confirmed[i][1]}</td>
+    //       </tr>
+    //     `
+    //     }else {
+        
+    //       if(i === confirmed.length){
+
+    //         dato = confirmed[i-1][0].join('/');
+
+    //         factor = ((Number(document.getElementById('confirm1').innerText)/(confirmed[i-1][1]))).toFixed(3);
+
+    //         if(factor !== 1.000 && Number(document.getElementById('confirm1').innerText) - confirmed[i-1][1] !== 0){
+    //             proyeccion.innerHTML += 
+    //             `
+    //               <tr>
+    //                 <th scope="row">${moment().format('D/M/YY')}</th>
+    //                 <td>${Number(document.getElementById('confirm1').innerText) - confirmed[i-1][1]}</td>
+    //                 <td>${factor}</td>
+    //                 <td>${Number(document.getElementById('confirm1').innerText)}</td>
+    //               </tr>
+    //             `
+    //         }
+
+    //       }
+
+    //       else{
+
+    //         dato = confirmed[i][0].join('/');
+
+    //         factor = ((confirmed[i][1]/(confirmed[i-1][1]))).toFixed(3);
+            
+    //         proyeccion.innerHTML += `
+    //           <tr>
+    //             <th scope="row">${dato}</th>
+    //             <td>${confirmed[i][1] - confirmed[i-1][1]}</td>
+    //             <td>${factor}</td>
+    //             <td>${confirmed[i][1]}</td>
+    //           </tr>
+    //         `
+    //         }
+    //     }
+    //   }
+
+    //   // Recuperados 
+
+    //   let recuperados = document.getElementById('recuperados');
+
+    //   for(let i = 0; i <= recovered.length; i++){
+
+    //     let factor, dato;
+
+    //     if(i === 0){
+
+    //       dato = recovered[i][0].join('/');
+    //       factor = 0;
+
+    //       recuperados.innerHTML += 
+    //       `
+    //       <tr>
+    //         <th scope="row">${dato}</th>
+    //         <td>${recovered[i][1]}</td>
+    //         <td>${factor}</td>
+    //         <td>${recovered[i][1]}</td>
+    //       </tr>
+    //     `
+    //     } else {
+        
+    //       if(i === recovered.length){
+
+    //         dato = recovered[i-1][0].join('/');
+
+    //         factor = ((Number(document.getElementById('recover1').innerText)/(recovered[i-1][1]))).toFixed(3);
+
+    //         if(factor !== 1.000 && Number(document.getElementById('recover1').innerText) - recovered[i-1][1] !== 0){
+                
+    //          if(Number(document.getElementById('recover1').innerText) - recovered[i-1][1] > 0){
+       
+    //           recuperados.innerHTML += 
+    //             `
+    //               <tr>
+    //                 <th scope="row">${moment().format('D/M/YY')}</th>
+    //                 <td>${Number(document.getElementById('recover1').innerText) - recovered[i-1][1]}</td>
+    //                 <td>${factor}</td>
+    //                 <td>${Number(document.getElementById('recover1').innerText)}</td>
+    //               </tr>
+    //             `
+    //          } 
+    //         }
+            
+    //       }
+
+    //       else{
+
+    //         dato = recovered[i][0].join('/');
+
+    //         factor = ((recovered[i][1]/(recovered[i-1][1]))).toFixed(3);
+            
+    //         recuperados.innerHTML += `
+    //           <tr>
+    //             <th scope="row">${dato}</th>
+    //             <td>${recovered[i][1] - recovered[i-1][1]}</td>
+    //             <td>${factor}</td>
+    //             <td>${recovered[i][1]}</td>
+    //           </tr>
+    //         `
+    //         }
+    //     }
+    //   }
+
+    //   // Fallecidos 
+
+    //   let fallecidos = document.getElementById('fallecidos');
+
+    //   for(let i = 0; i <= deaths.length; i++){
+
+    //     let factor, dato;
+
+    //     if(i === 0){
+
+    //       dato = deaths[i][0].join('/');
+    //       factor = 0;
+
+    //       fallecidos.innerHTML += 
+    //       `
+    //       <tr>
+    //         <th scope="row">${dato}</th>
+    //         <td>${deaths[i][1]}</td>
+    //         <td>${factor}</td>
+    //         <td>${deaths[i][1]}</td>
+    //       </tr>
+    //     `
+    //     } 
+        
+    //     else {
+        
+    //       if(i === deaths.length){
+
+    //         dato = deaths[i-1][0].join('/');
+
+    //         factor = ((Number(document.getElementById('death1').innerText)/(deaths[i-1][1]))).toFixed(3);
+            
+
+    //         if(factor !== 1.000 && Number(document.getElementById('death1').innerText) - deaths[i-1][1] !== 0){
+    //             fallecidos.innerHTML += 
+    //             `
+    //               <tr>
+    //                 <th scope="row">${moment().format('D/M/YY')}</th>
+    //                 <td>${Number(document.getElementById('death1').innerText) - deaths[i-1][1]}</td>
+    //                 <td>${factor}</td>
+    //                 <td>${Number(document.getElementById('death1').innerText)}</td>
+    //               </tr>
+    //             `
+    //         }
+
+    //       }
+
+    //       else{
+
+    //         dato = deaths[i][0].join('/');
+
+    //         factor = ((deaths[i][1]/(deaths[i-1][1]))).toFixed(3);
+            
+    //         fallecidos.innerHTML += `
+    //           <tr>
+    //             <th scope="row">${dato}</th>
+    //             <td>${deaths[i][1] - deaths[i-1][1]}</td>
+    //             <td>${factor}</td>
+    //             <td>${deaths[i][1]}</td>
+    //           </tr>
+    //         `
+    //       }
+    //     }
+    //   }
+
+    //   // SIR
+
+    //   let sir = document.getElementById('SIR');
+    //   let newConfirmed = [];
+
+    // /*  const newFilter = () => {
+
+    //     let fecha2 = new Date('2020-04-14').toLocaleDateString();
+
+    //     for(let i = 0; i<confirmed.length; i++){
+
+    //       let fecha1 = new Date(confirmed[i][0].join('/')).toLocaleDateString();
+
+    //       if(fecha1 >= fecha2){
+    //         newConfirmed.push(confirmed[i][0]);
+    //       }
+    //     }
+    //   };
+
+    //   newFilter();*/
+
+    //  /* const newFilter = confirmed.filter( confirm => new Date(confirm[0].join('/')).toLocaleDateString() > new Date('2020-04-14').toLocaleDateString());
+
+    //   console.log(newFilter); 
+    //   /*for(let i = 0; i <= deaths.length; i++){
+
+    //     let factor, dato;
+
+    //     if(i === 0){
+
+    //       dato = deaths[i][0].join('/');
+    //       factor = 0;
+
+    //       fallecidos.innerHTML += 
+    //       `
+    //       <tr>
+    //         <th scope="row">${dato}</th>
+    //         <td>${deaths[i][1]}</td>
+    //         <td>${factor}</td>
+    //         <td>${deaths[i][1]}</td>
+    //       </tr>
+    //     `
+    //     } 
+        
+    //     else {
+        
+    //       if(i === deaths.length){
+
+    //         dato = deaths[i-1][0].join('/');
+    //         let newFecha = moment().format('D/M/YY');
+
+    //         if(dato === newFecha){
+    //           factor = 0;
+    //           dato = moment().format('D/M/YY');
+    //           fallecidos.innerHTML += 
+    //           `
+    //             <tr>
+    //               <th scope="row">${dato}</th>
+    //               <td>${Number(document.getElementById('death1').innerText) - deaths[i-1][1]}</td>
+    //               <td>${factor}</td>
+    //               <td>${document.getElementById('death1').innerText}</td>
+    //             </tr>
+    //           `
+    //         }
+
+    //       }
+
+    //       else{
+
+    //         dato = deaths[i][0].join('/');
+
+    //         factor = ((deaths[i][1]/(deaths[i-1][1]))).toFixed(3);
+            
+    //         fallecidos.innerHTML += `
+    //           <tr>
+    //             <th scope="row">${dato}</th>
+    //             <td>${deaths[i][1] - deaths[i-1][1]}</td>
+    //             <td>${factor}</td>
+    //             <td>${deaths[i][1]}</td>
+    //           </tr>
+    //         `
+    //       }
+    //     }
+    //   }*/
+      
+    //   }
+    // )
 
   }
 }

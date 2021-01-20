@@ -21,18 +21,17 @@ export class APP {
       // obtener la fecha proporcionada por usuario y actualizar datos
       let valueData = new Date(
         document.getElementById("fecha").value
-      ).toUTCString();
-
-      valueData = moment.utc(valueData).format("D/M/YY");
+      );
 
       ui.dataNumbers(valueData);
     });  
     
-    document.addEventListener('DOMContentLoaded', e =>{
-        canvas.setGraphs('contagiados');
-       // canvas.setGraphs('recuperados');
-        canvas.setGraphs('fallecidos');
-    });
+    // Se eliminaron los gráficos CANVAS (18/01/2020)
+    // document.addEventListener('DOMContentLoaded', e =>{
+    //     canvas.setGraphs('contagiados');
+    //    // canvas.setGraphs('recuperados');
+    //     canvas.setGraphs('fallecidos');
+    // });
 
   }
 }

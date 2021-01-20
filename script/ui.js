@@ -29,23 +29,25 @@ export class Interfaz{
         document.getElementById('fecha').setAttribute("max", moment().format("YYYY-MM-DD"));
 
         // Gráfico inicial
-        data.obtenerDatos()
-            .then( data =>{
+        // data.obtenerDatos()
+        //     .then( data =>{
 
-                let arr = Object.values(data.response.confirmed.locations[48].history);
+        //         let arr = Object.values(data.response.confirmed.locations[48].history);
 
-                canvas.setDataGraph(arr, "Contagiados");
+        //         canvas.setDataGraph(arr, "Contagiados");
                 
-                });
+        //         });
     }
 
     // Método que carga la data de contagiados, recuperados y fallecidos al día
     setTodayDate(){
 
-        let dataToday = data.obtenerDiario()
+        let dataToday = data.obtenerDatos()
             .then( data => {
-                let datos = data.response.report;
-                this.fillMainData(this.fechaToday, datos.cases, datos.deaths, datos.recovered);
+
+                let datos = data.response.All;
+
+                this.fillMainData(this.fechaToday, datos.confirmed, datos.deaths, datos.recovered);
             })
             .catch(reject =>{
 
