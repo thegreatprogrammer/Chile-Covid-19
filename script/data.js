@@ -138,7 +138,7 @@ export class DATA {
     };
   }
 
-  provideArray(proyeccion){
+  async provideArray(proyeccion){
 
     // se debe llamar a cada metodo según categoría
 
@@ -300,7 +300,77 @@ export class DATA {
 
     let dataFallecidos = this.obtenerFallecidos().then(data => {
 
-      
+      let deathsData = data.response.All.dates;
+      let tempData = [];
+      let fechaTemp;
+
+      for (const [key, value] of Object.entries(deathsData)) {
+          
+        if (value !== 0) {
+
+          fechaTemp = moment(key).format("D/MM/YYYY");
+          let date = {'fecha': fechaTemp, 'valor': value};
+          tempData.push(date)
+
+        }
+      }
+
+      // reversando el array
+      tempData.reverse();
+
+      for(let i = 0; i <= tempData.length; i++){
+
+        let factor = 1, dato;
+
+        // Insertando filas de la tabla
+        if(i === 0){
+
+          document.getElementById('fallecidos').innerHTML += 
+          `
+          <tr>
+            <th scope="row">${tempData[0].fecha}</th>
+            <td>${tempData[0].valor}</td>
+            <td>${factor}</td>
+            <td>${tempData[0].valor}</td>
+          </tr>
+        `
+        }else {
+        
+          if(i === tempData.length){
+
+            factor = ((Number(document.getElementById('death1').innerText)/(tempData[i-1].valor))).toFixed(3);
+
+            if(factor !== 1.000 && Number(document.getElementById('death1').innerText) - tempData[i-1].valor !== 0){
+              document.getElementById('fallecidos').innerHTML += 
+                `
+                  <tr>
+                    <th scope="row">${moment().format('D/M/YYYY')}</th>
+                    <td>${Number(document.getElementById('death1').innerText) - tempData[i-1].valor}</td>
+                    <td>${factor}</td>
+                    <td>${Number(document.getElementById('death1').innerText)}</td>
+                  </tr>
+                `
+            }
+
+          }
+
+          else{
+
+            dato = tempData[i].fecha;
+
+            factor = ((tempData[i].valor/tempData[i-1].valor)).toFixed(3);
+            
+            document.getElementById('fallecidos').innerHTML += `
+              <tr>
+                <th scope="row">${dato}</th>
+                <td>${tempData[i].valor - tempData[i-1].valor}</td>
+                <td>${factor}</td>
+                <td>${tempData[i].valor}</td>
+              </tr>
+            `
+            }
+        }
+      }
 
     });
 
